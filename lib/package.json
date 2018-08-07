@@ -1,0 +1,32 @@
+{
+  "name": "react-native-drag-sort",
+  "version": "1.0.0",
+  "description": "Drag and drop sort control for react-native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mochixuan/react-native-drag-sort.git"
+  },
+  "keywords": [
+    "drag",
+    "drop",
+    "sort",
+    "react",
+    "react-component",
+    "ios",
+    "android",
+    "react-native",
+    "list"
+  ],
+  "author": "mochixuan",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/mochixuan/react-native-drag-sort/issues"
+  },
+  "homepage": "https://github.com/mochixuan/react-native-drag-sort#readme"
+}

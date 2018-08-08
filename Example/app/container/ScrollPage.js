@@ -68,13 +68,15 @@ export default class ScrollPage extends Component{
                                 })
                             }
                         }}
-                        onClickItem={(item,index)=>{
+                        onClickItem={(data,item,index)=>{
                             // click delete
-                            // const data = [...this.state.data]
-                            // data.splice(index,1)
-                            // this.setState({
-                            //     data: data
-                            // })
+                            // if (this.state.isEnterEdit) {
+                            //     const newData = [...data]
+                            //     newData.splice(index,1)
+                            //     this.setState({
+                            //         data: newData
+                            //     })
+                            // }
                         }}
                         renderItem={(item,index)=>{
                             return this.renderItem(item,index)

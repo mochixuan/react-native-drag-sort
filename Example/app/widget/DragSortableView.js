@@ -5,6 +5,7 @@ const PropTypes = require('prop-types')
 const {width,height} = Dimensions.get('window')
 
 const sortRefs = new Map()
+const animMaps = new Map()
 const measureDelay = 100
 const defaultZIndex = 8
 const touchZIndex = 99
@@ -124,8 +125,6 @@ export default class DragSortableView extends Component{
                 }
             })
         }
-
-
     }
 
 
@@ -200,6 +199,10 @@ export default class DragSortableView extends Component{
                     } else if (index != this.touchCurItem.index &&
                         (item.position.x._value != item.originLeft ||
                             item.position.y._value != item.originTop)) {
+                        nextItem = this.state.dataSource[index]
+
+                    } else if ((this.touchCurItem.index-moveToIndex > 0 && moveToIndex == index+1) ||
+                        (this.touchCurItem.index-moveToIndex < 0 && moveToIndex == index-1)) {
                         nextItem = this.state.dataSource[index]
                     }
 
@@ -393,7 +396,7 @@ export default class DragSortableView extends Component{
                                     onLongPress={()=>this.startTouch(index)}
                                     onPress={()=>{
                                         if (this.props.onClickItem) {
-                                            this.props.onClickItem(item.data,index)
+                                            this.props.onClickItem(this.getOriginalData(),item.data,index)
                                         }
                                     }}>
                                     {this.props.renderItem(item.data,index)}

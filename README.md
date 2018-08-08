@@ -6,6 +6,7 @@ Drag and drop sort control for react-native
 [![npm](https://img.shields.io/npm/v/react-native-drag-sort.svg?style=flat)](https://npmjs.com/package/react-native-drag-sort)
 
 ### Performance
+![Demonstration.gif](https://upload-images.jianshu.io/upload_images/2646598-194e9a7b4bbb21a8.gif?imageMogr2/auto-orient/strip)
 
 ### Installation
 ```bash
@@ -20,24 +21,24 @@ npm i react-native-drag-sort --save
 - [Fixed Rows](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/FixedRowsPage.js)
 
 ``` react
-	<DragSortableView
-	    dataSource={this.state.data}
-	    parentWidth={parentWidth}
-	    childrenWidth= {childrenWidth}
-	    childrenHeight={childrenHeight}
-	    marginChildrenTop={marginChildrenTop}
-	    onDataChange = {(data)=>{
-	        // delete or add data to refresh
-	        if (data.length != this.state.data.length) {
-	            this.setState({
-	                data: data
-	            })
-	        }
-	    }}
-	    onClickItem={(item,index)=>{}}
-	    renderItem={(item,index)=>{
-	        return this.renderItem(item,index)
-	    }}/>
+<DragSortableView
+    dataSource={this.state.data}
+    parentWidth={parentWidth}
+    childrenWidth= {childrenWidth}
+    childrenHeight={childrenHeight}
+    marginChildrenTop={marginChildrenTop}
+    onDataChange = {(data)=>{
+        // delete or add data to refresh
+        if (data.length != this.state.data.length) {
+            this.setState({
+                data: data
+            })
+        }
+    }}
+    onClickItem={(data,item,index)=>{}}
+    renderItem={(item,index)=>{
+        return this.renderItem(item,index)
+    }}/>
 
 ```
 

@@ -42,8 +42,14 @@ export default class FixedRowsPage extends Component{
                                 })
                             }
                         }}
-                        onClickItem={(item,index)=>{
-
+                        onClickItem={(data,item,index)=>{
+                            // if (this.state.isEnterEdit) {
+                            //     const newData = [...data]
+                            //     newData.splice(index,1)
+                            //     this.setState({
+                            //         data: newData
+                            //     })
+                            // }
                         }}
                         renderItem={(item,index)=>{
                             return this.renderItem(item,index)

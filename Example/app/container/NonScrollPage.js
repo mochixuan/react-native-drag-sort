@@ -49,12 +49,13 @@ export default class NonScrollPage extends Component{
                                 })
                             }
                         }}
-                        onClickItem={(item,index)=>{
+                        onClickItem={(data,item,index)=>{
+                            //delete
                             if (this.state.isEnterEdit) {
-                                const data = [...this.state.data]
-                                data.splice(index,1)
+                                const newData = [...data]
+                                newData.splice(index,1)
                                 this.setState({
-                                    data: data
+                                    data: newData
                                 })
                             }
                         }}

@@ -4166,9 +4166,9 @@ react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/react-native-dismiss-keyboard/download/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
 
-react-native-drag-sort@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/react-native-drag-sort/-/react-native-drag-sort-1.0.0.tgz#39eb8011aaaf53f763c0d234139a0f048488fe32"
+react-native-drag-sort@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/react-native-drag-sort/-/react-native-drag-sort-1.0.2.tgz#1d46d4ad2bf4180e7910037d15a8bc3b368fb530"
 
 react-native-drawer-layout-polyfill@^1.3.2:
   version "1.3.2"

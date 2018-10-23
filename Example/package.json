@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-drag-sort": "^1.0.0",
+    "react-native-drag-sort": "1.0.2",
     "react-navigation": "2.11.2"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native'
+import {Dimensions, Image, StyleSheet, Text, View,TouchableOpacity} from 'react-native'
 import DragSortableView from '../widget/DragSortableView'
 import {TEST_DATA, TXT} from '../data/base/BaseConstant'
 
@@ -55,6 +55,7 @@ export default class FixedRowsPage extends Component{
                             return this.renderItem(item,index)
                         }}/>
                 </View>
+
                 <Text style={styles.txt}>Fixed 3 lines</Text>
             </View>
         )

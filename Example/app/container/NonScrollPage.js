@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native'
+import {Dimensions, Image, StyleSheet, Text, View,TouchableOpacity} from 'react-native'
 import DragSortableView from '../widget/DragSortableView'
 import {TEST_DATA, TXT} from '../data/base/BaseConstant'
 
@@ -63,6 +63,17 @@ export default class NonScrollPage extends Component{
                             return this.renderItem(item,index)
                         }}/>
                 </View>
+                {
+                    <TouchableOpacity style={styles.button} onPress={()=> {
+                        const  newData = [...this.state.data] //pointer problem
+                        newData.push( {icon: require('../data/img/animal10.png'),txt: 'New'})
+                        this.setState({
+                            data: newData
+                        })
+                    }}>
+                        <Text style={styles.button_text}>Add One</Text>
+                    </TouchableOpacity>
+                }
                 <Text style={styles.txt}>{TXT}</Text>
             </View>
         )
@@ -138,5 +149,19 @@ const styles = StyleSheet.create({
         height: childrenHeight-4-8,
         resizeMode: 'contain',
         position: 'absolute'
-    }
+    },
+    button: {
+        width: width*0.6,
+        height: 48,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        backgroundColor: '#7da6ff',
+        borderRadius: 2,
+        marginTop: 20,
+    },
+    button_text: {
+        fontSize: 18,
+        color: '#fff'
+    },
 })

@@ -27,7 +27,6 @@ export default class NonScrollPage extends Component{
                 <View style={styles.sort}>
                     <DragSortableView
                         dataSource={this.state.data}
-
                         parentWidth={parentWidth}
 
                         childrenWidth= {childrenWidth}

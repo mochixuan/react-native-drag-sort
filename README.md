@@ -1,9 +1,14 @@
 # react-native-drag-sort
 Drag and drop sort control for react-native
 
-
 ![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
 [![npm](https://img.shields.io/npm/v/react-native-drag-sort.svg?style=flat)](https://npmjs.com/package/react-native-drag-sort)
+
+#### 2019.2: 优化拖拽不移动时自动恢复，现在这个插件应该没有任何问题。新加一个实战演示例子，后面有时间会对这个例子进行加动画，删除时item向下到待选的item动画，和待选到item。还有滑动时自动向下滑动动画。
+
+![ezgif.com-video-to-gif.gif](https://upload-images.jianshu.io/upload_images/2646598-99da83505d15dee7.gif?imageMogr2/auto-orient/strip)
+
+----
 
 ### Performance
 ![Demonstration.gif](https://upload-images.jianshu.io/upload_images/2646598-194e9a7b4bbb21a8.gif?imageMogr2/auto-orient/strip)

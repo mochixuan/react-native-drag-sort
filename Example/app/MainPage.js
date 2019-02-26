@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 import ScrollPage from "./container/ScrollPage";
 import NonScrollPage from "./container/NonScrollPage";
+import {CommonSortPage} from "./container/CommonSortPage";
 const {width}  = Dimensions.get('window')
 
 export default class MainPage extends Component{
@@ -28,6 +29,11 @@ export default class MainPage extends Component{
                 {
                     this.renderButtonStyle('Fixed number of rows',()=>{
                         this.props.navigation.navigate('FixedRowsPage')
+                    })
+                }
+                {
+                    this.renderButtonStyle('CommonSortPage',()=>{
+                        this.props.navigation.navigate('CommonSortPage')
                     })
                 }
             </View>

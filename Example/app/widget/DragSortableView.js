@@ -50,62 +50,11 @@ export default class DragSortableView extends Component{
         }
     }
 
-    startTouch1(nativeEvent) {
-
-        if (this.measureTimeOut) clearTimeout(this.measureTimeOut)
-
-        this.measureTimeOut = setTimeout(()=>{
-            this.sortParentRef.measure((x, y, width, height, left, top) => {
-
-                if (x != null) {
-                    this.sortParentLayout = {
-                        width: this.props.parentWidth,
-                        height: height,
-                        left: left,
-                        top: top
-                    }
-                }
-
-                if (this.sortParentLayout == null) return;
-
-                const {pageX,pageY,locationX,locationY} = nativeEvent
-
-                const rowNum = parseInt(this.sortParentLayout.width/this.itemWidth);
-
-                const touchIndexX = parseInt((pageX-this.sortParentLayout.left)/this.itemWidth)
-                const touchIndexY = parseInt((pageY-this.sortParentLayout.top)/this.itemHeight)
-
-                const touchIndex = touchIndexX+touchIndexY*rowNum
-
-                if (touchIndex != null && sortRefs.has(touchIndex)) {
-                    this.touchCurItem = {
-                        ref: sortRefs.get(touchIndex),
-                        index: touchIndex,
-                        originLeft: this.itemWidth*touchIndexX,
-                        originTop: this.itemHeight*touchIndexY,
-                        moveToIndex: touchIndex,
-                    }
-                    if (this.props.onDragStart) {
-                        this.props.onDragStart(touchIndex)
-                    }
-                    Animated.timing(
-                        this.state.dataSource[this.touchCurItem.index].scaleValue,
-                        {
-                            toValue: maxScale,
-                            duration: scaleDuration,
-                        }
-                    ).start()
-                }
-
-            })
-        },measureDelay)
-    }
-
     startTouch(touchIndex) {
 
-        if (!this.props.sortable) return
+        this.isHasMove = false
 
-        if (this.measureTimeOut) clearTimeout(this.measureTimeOut)
+        if (!this.props.sortable) return
 
         if (sortRefs.has(touchIndex)) {
             if (this.props.onDragStart) {
@@ -126,19 +75,17 @@ export default class DragSortableView extends Component{
                     moveToIndex: touchIndex,
                 }
                 this.isMovePanResponder = true
-                this.isScaleRecovery = setTimeout(()=>{
-                    this.endTouch()
-                },300)
             })
         }
     }
 
 
 
-
     moveTouch (nativeEvent,gestureState) {
 
-        if (this.isScaleRecovery) clearTimeout(this.isScaleRecovery)
+        this.isHasMove = true
+
+        //if (this.isScaleRecovery) clearTimeout(this.isScaleRecovery)
 
         if (this.touchCurItem) {
 
@@ -192,7 +139,7 @@ export default class DragSortableView extends Component{
             }
 
             moveToIndex = this.touchCurItem.index+moveXNum+moveYNum*rowNum
-            
+
             if (moveToIndex > this.state.dataSource.length-1) moveToIndex = this.state.dataSource.length-1
 
             if (this.touchCurItem.moveToIndex != moveToIndex ) {
@@ -231,15 +178,12 @@ export default class DragSortableView extends Component{
                 })
             }
 
-
-
         }
     }
 
     endTouch (nativeEvent) {
 
         //clear
-        if (this.measureTimeOut) clearTimeout(this.measureTimeOut)
 
         if (this.touchCurItem) {
             if (this.props.onDragEnd) {
@@ -261,6 +205,14 @@ export default class DragSortableView extends Component{
             this.changePosition(this.touchCurItem.index,this.touchCurItem.moveToIndex)
             this.touchCurItem = null
         }
+    }
+
+    onPressOut () {
+        this.isScaleRecovery = setTimeout(()=> {
+            if (this.isMovePanResponder && !this.isHasMove) {
+                this.endTouch()
+            }
+        },220)
     }
 
     changePosition(startIndex,endIndex) {
@@ -404,6 +356,7 @@ export default class DragSortableView extends Component{
                                 }]}>
                                 <TouchableOpacity
                                     activeOpacity = {1}
+                                    onPressOut={()=> this.onPressOut()}
                                     onLongPress={()=>this.startTouch(index)}
                                     onPress={()=>{
                                         if (this.props.onClickItem) {
@@ -421,7 +374,7 @@ export default class DragSortableView extends Component{
     }
 
     componentWillUnmount() {
-        if (this.measureTimeOut) clearTimeout(this.measureTimeOut)
+        if (this.isScaleRecovery) clearTimeout(this.isScaleRecovery)
     }
 
 }

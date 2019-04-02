@@ -36,6 +36,11 @@ export default class MainPage extends Component{
                         this.props.navigation.navigate('CommonSortPage')
                     })
                 }
+                {
+                    this.renderButtonStyle('OneRowsPage',()=>{
+                        this.props.navigation.navigate('OneRowsPage')
+                    })
+                }
             </View>
         )
     }

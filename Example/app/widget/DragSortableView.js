@@ -334,6 +334,8 @@ export default class DragSortableView extends Component{
                 >
                 {
                     this.state.dataSource.map((item,index)=>{
+                        const transformObj = {}
+                        transformObj[this.props.scaleStatus] = item.scaleValue
                         return (
                             <Animated.View
                                 key={item.originIndex}
@@ -350,9 +352,7 @@ export default class DragSortableView extends Component{
                                         inputRange:[1,maxScale],
                                         outputRange:[1,minOpacity]
                                     }),
-                                    transform: [
-                                        {scale: item.scaleValue}
-                                    ]
+                                    transform: [transformObj]
                                 }]}>
                                 <TouchableOpacity
                                     activeOpacity = {1}
@@ -397,6 +397,7 @@ DragSortableView.propsTypes = {
     onDragEnd: PropTypes.func,
     onDataChange: PropTypes.func,
     renderItem: PropTypes.func.isRequired,
+    scaleStatus: PropTypes.oneOf('scale','scaleX','scaleY')
 }
 
 DragSortableView.defaultProps = {
@@ -406,6 +407,7 @@ DragSortableView.defaultProps = {
     marginChildrenRight: 0,
     parentWidth: width,
     sortable: true,
+    scaleStatus: 'scale'
 }
 
 const styles = StyleSheet.create({

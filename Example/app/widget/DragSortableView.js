@@ -52,6 +52,12 @@ export default class DragSortableView extends Component{
 
     startTouch(touchIndex) {
 
+        //防止拖动
+        const fixedItems = this.props.fixedItems;
+        if (fixedItems.length > 0 && fixedItems.includes(touchIndex)){
+            return;
+        }
+
         this.isHasMove = false
 
         if (!this.props.sortable) return
@@ -143,8 +149,9 @@ export default class DragSortableView extends Component{
             if (moveToIndex > this.state.dataSource.length-1) moveToIndex = this.state.dataSource.length-1
 
             if (this.touchCurItem.moveToIndex != moveToIndex ) {
+                const fixedItems = this.props.fixedItems;
+                if (fixedItems.length > 0 && fixedItems.includes(moveToIndex)) return;
                 this.touchCurItem.moveToIndex = moveToIndex
-
                 this.state.dataSource.forEach((item,index)=>{
 
                     let nextItem = null
@@ -184,7 +191,6 @@ export default class DragSortableView extends Component{
     endTouch (nativeEvent) {
 
         //clear
-
         if (this.touchCurItem) {
             if (this.props.onDragEnd) {
                 this.props.onDragEnd(this.touchCurItem.index,this.touchCurItem.moveToIndex)
@@ -397,7 +403,8 @@ DragSortableView.propsTypes = {
     onDragEnd: PropTypes.func,
     onDataChange: PropTypes.func,
     renderItem: PropTypes.func.isRequired,
-    scaleStatus: PropTypes.oneOf('scale','scaleX','scaleY')
+    scaleStatus: PropTypes.oneOf('scale','scaleX','scaleY'),
+    fixedItems: PropTypes.array
 }
 
 DragSortableView.defaultProps = {
@@ -407,7 +414,8 @@ DragSortableView.defaultProps = {
     marginChildrenRight: 0,
     parentWidth: width,
     sortable: true,
-    scaleStatus: 'scale'
+    scaleStatus: 'scale',
+    fixedItems: []
 }
 
 const styles = StyleSheet.create({

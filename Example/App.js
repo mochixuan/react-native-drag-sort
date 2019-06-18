@@ -7,6 +7,7 @@ import NonScrollPage from "./app/container/NonScrollPage";
 import FixedRowsPage from "./app/container/FixedRowsPage";
 import {CommonSortPage} from "./app/container/CommonSortPage";
 import OneRowsPage from "./app/container/OneRowsPage";
+import {SortAndFixedPage} from "./app/container/SortAndFixedPage";
 
 
 const App  = StackNavigator({
@@ -15,7 +16,8 @@ const App  = StackNavigator({
     NonScrollPage: {screen: NonScrollPage},
     FixedRowsPage: {screen: FixedRowsPage},
     CommonSortPage: {screen: CommonSortPage},
-    OneRowsPage: {screen: OneRowsPage}
+    OneRowsPage: {screen: OneRowsPage},
+    SortAndFixedPage: {screen: SortAndFixedPage},
 },{
     navigationOptions: {
         gesturesEnabled: true

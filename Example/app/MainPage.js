@@ -41,6 +41,11 @@ export default class MainPage extends Component{
                         this.props.navigation.navigate('OneRowsPage')
                     })
                 }
+                {
+                    this.renderButtonStyle('SortAndFixedPage', () => {
+                        this.props.navigation.navigate('SortAndFixedPage')
+                    })
+                }
             </View>
         )
     }

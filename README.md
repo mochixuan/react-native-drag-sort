@@ -4,6 +4,9 @@ Drag and drop sort control for react-native
 ![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
 [![npm](https://img.shields.io/npm/v/react-native-drag-sort.svg?style=flat)](https://npmjs.com/package/react-native-drag-sort)
 
+#### 2019.6 新增顶部固定功能，可以设置开始连续几个为不可拖动功能，类似今日头条一样，该功能和今日头条拖拽一样，可以去对比一下。
+![ezgif.com-resize.gif](https://upload-images.jianshu.io/upload_images/2646598-405b01d61547c972.gif?imageMogr2/auto-orient/strip)
+
 #### 2019.3: 新增单行拖拽演示，其实这个功能一致，这个拖拽插件本来就是自适应行,有时间会整体优化下ScrollView问题，使控件自带ScrollView功能。
 ![one-line.gif](https://upload-images.jianshu.io/upload_images/2646598-dd17c76291514316.gif?imageMogr2/auto-orient/strip)
 
@@ -68,6 +71,7 @@ npm i react-native-drag-sort --save
 - **onDragEnd** : PropTypes.func,
 - **onDataChange** : PropTypes.func, //This method is called every time the data changes.
 - **renderItem** : PropTypes.func.isRequired, //render item view
+- **fixedItems**:PropTypes.array //no remove
 
 
 

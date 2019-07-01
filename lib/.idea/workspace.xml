@@ -26,8 +26,8 @@
       <file leaf-file-name="DragSortableView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DragSortableView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="406" column="14" selection-start-line="406" selection-start-column="4" selection-end-line="406" selection-end-column="14" />
+            <state relative-caret-position="143">
+              <caret line="122" column="26" selection-start-line="122" selection-start-column="20" selection-end-line="122" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -45,6 +45,7 @@
     <findStrings>
       <find>sortable</find>
       <find>fixedItems</find>
+      <find>zIndex</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -64,17 +65,18 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="228" />
-    <option name="y" value="73" />
-    <option name="width" value="803" />
-    <option name="height" value="792" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="130" />
+    <option name="y" value="69" />
+    <option name="width" value="1440" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -86,7 +88,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -135,14 +136,15 @@
       <workItem from="1551173632071" duration="120000" />
       <workItem from="1552265961511" duration="8000" />
       <workItem from="1560822340849" duration="210000" />
+      <workItem from="1561971186362" duration="74000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2010000" />
+    <option name="totallyTimeSpent" value="2084000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="130" y="69" width="1440" height="788" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.35855728" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -152,7 +154,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31965175" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3835821" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -171,6 +173,20 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DragSortableView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7695">
+          <caret line="406" column="14" selection-start-line="406" selection-start-column="4" selection-end-line="406" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -222,8 +238,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DragSortableView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="406" column="14" selection-start-line="406" selection-start-column="4" selection-end-line="406" selection-end-column="14" />
+        <state relative-caret-position="143">
+          <caret line="122" column="26" selection-start-line="122" selection-start-column="20" selection-end-line="122" selection-end-column="26" />
         </state>
       </provider>
     </entry>

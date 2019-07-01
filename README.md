@@ -4,6 +4,8 @@ Drag and drop sort control for react-native
 ![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
 [![npm](https://img.shields.io/npm/v/react-native-drag-sort.svg?style=flat)](https://npmjs.com/package/react-native-drag-sort)
 
+#### 2019.7 修复一个小问题。1.x版本结束，接下来将编写2.x版本，预计添加自动兼容ScrollView滑动、滑动删除功能等。
+
 #### 2019.6 新增顶部固定功能，可以设置开始连续几个为不可拖动功能，类似今日头条一样，该功能和今日头条拖拽一样，可以去对比一下。
 ![ezgif.com-resize.gif](https://upload-images.jianshu.io/upload_images/2646598-405b01d61547c972.gif?imageMogr2/auto-orient/strip)
 

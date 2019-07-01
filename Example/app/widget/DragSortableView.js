@@ -4,8 +4,6 @@ import {Animated, Dimensions, Easing, PanResponder, StyleSheet, TouchableOpacity
 const PropTypes = require('prop-types')
 const {width,height} = Dimensions.get('window')
 
-const sortRefs = new Map()
-const animMaps = new Map()
 const measureDelay = 100
 const defaultZIndex = 8
 const touchZIndex = 99
@@ -15,6 +13,17 @@ const scaleDuration = 100
 const slideDuration = 300
 
 export default class DragSortableView extends Component{
+
+    constructor(props) {
+        super(props)
+
+        this.sortRefs = new Map()
+
+        this.itemWidth = props.childrenWidth+props.marginChildrenLeft+props.marginChildrenRight
+        this.itemHeight = props.childrenHeight+props.marginChildrenTop+props.marginChildrenBottom
+
+        this.reComplexDataSource(true,props)
+    }
 
     componentWillMount() {
         this._panResponder = PanResponder.create({
@@ -35,15 +44,6 @@ export default class DragSortableView extends Component{
         })
     }
 
-    constructor(props) {
-        super()
-
-        this.itemWidth = props.childrenWidth+props.marginChildrenLeft+props.marginChildrenRight
-        this.itemHeight = props.childrenHeight+props.marginChildrenTop+props.marginChildrenBottom
-
-        this.reComplexDataSource(true,props)
-    }
-
     componentWillReceiveProps(nextProps) {
         if (this.props.dataSource != nextProps.dataSource) {
             this.reComplexDataSource(false,nextProps)
@@ -62,7 +62,7 @@ export default class DragSortableView extends Component{
 
         if (!this.props.sortable) return
 
-        if (sortRefs.has(touchIndex)) {
+        if (this.sortRefs.has(touchIndex)) {
             if (this.props.onDragStart) {
                 this.props.onDragStart(touchIndex)
             }
@@ -74,7 +74,7 @@ export default class DragSortableView extends Component{
                 }
             ).start(()=>{
                 this.touchCurItem = {
-                    ref: sortRefs.get(touchIndex),
+                    ref: this.sortRefs.get(touchIndex),
                     index: touchIndex,
                     originLeft: this.state.dataSource[touchIndex].originLeft,
                     originTop: this.state.dataSource[touchIndex].originTop,
@@ -345,7 +345,7 @@ export default class DragSortableView extends Component{
                         return (
                             <Animated.View
                                 key={item.originIndex}
-                                ref={(ref) => sortRefs.set(index,ref)}
+                                ref={(ref) => this.sortRefs.set(index,ref)}
                                 {...this._panResponder.panHandlers}
                                 style={[styles.item,{
                                     marginTop: this.props.marginChildrenTop,

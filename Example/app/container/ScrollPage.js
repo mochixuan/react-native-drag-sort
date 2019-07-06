@@ -78,6 +78,7 @@ export default class ScrollPage extends Component{
                             //     })
                             // }
                         }}
+                        keyExtractor={(item,index)=> item.txt} // FlatList作用一样，优化
                         renderItem={(item,index)=>{
                             return this.renderItem(item,index)
                         }}

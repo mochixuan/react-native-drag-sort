@@ -2,9 +2,8 @@ import React, {Component} from 'react'
 import {Animated, Dimensions, Easing, PanResponder, StyleSheet, TouchableOpacity, View} from 'react-native'
 
 const PropTypes = require('prop-types')
-const {width,height} = Dimensions.get('window')
+const {width} = Dimensions.get('window')
 
-const measureDelay = 100
 const defaultZIndex = 8
 const touchZIndex = 99
 const maxScale = 1.1
@@ -338,45 +337,48 @@ export default class DragSortableView extends Component{
                 }]}
                 //onLayout={()=> {}}
                 >
-                {
-                    this.state.dataSource.map((item,index)=>{
-                        const transformObj = {}
-                        transformObj[this.props.scaleStatus] = item.scaleValue
-                        return (
-                            <Animated.View
-                                key={item.originIndex}
-                                ref={(ref) => this.sortRefs.set(index,ref)}
-                                {...this._panResponder.panHandlers}
-                                style={[styles.item,{
-                                    marginTop: this.props.marginChildrenTop,
-                                    marginBottom: this.props.marginChildrenBottom,
-                                    marginLeft: this.props.marginChildrenLeft,
-                                    marginRight: this.props.marginChildrenRight,
-                                    left: item.position.x,
-                                    top: item.position.y,
-                                    opacity: item.scaleValue.interpolate({
-                                        inputRange:[1,maxScale],
-                                        outputRange:[1,minOpacity]
-                                    }),
-                                    transform: [transformObj]
-                                }]}>
-                                <TouchableOpacity
-                                    activeOpacity = {1}
-                                    onPressOut={()=> this.onPressOut()}
-                                    onLongPress={()=>this.startTouch(index)}
-                                    onPress={()=>{
-                                        if (this.props.onClickItem) {
-                                            this.props.onClickItem(this.getOriginalData(),item.data,index)
-                                        }
-                                    }}>
-                                    {this.props.renderItem(item.data,index)}
-                                </TouchableOpacity>
-                            </Animated.View>
-                        )
-                    })
-                }
+                {this._renderItemView()}
             </View>
         )
+    }
+
+    _renderItemView = () => {
+        return this.state.dataSource.map((item,index)=>{
+            const transformObj = {}
+            transformObj[this.props.scaleStatus] = item.scaleValue
+            const key = this.props.keyExtractor ? this.props.keyExtractor(item.data,index) : item.originIndex
+            return (
+                <Animated.View
+                    key={key}
+                    ref={(ref) => this.sortRefs.set(index,ref)}
+                    {...this._panResponder.panHandlers}
+                    style={[styles.item,{
+                        marginTop: this.props.marginChildrenTop,
+                        marginBottom: this.props.marginChildrenBottom,
+                        marginLeft: this.props.marginChildrenLeft,
+                        marginRight: this.props.marginChildrenRight,
+                        left: item.position.x,
+                        top: item.position.y,
+                        opacity: item.scaleValue.interpolate({
+                            inputRange:[1,maxScale],
+                            outputRange:[1,minOpacity]
+                        }),
+                        transform: [transformObj]
+                    }]}>
+                    <TouchableOpacity
+                        activeOpacity = {1}
+                        onPressOut={()=> this.onPressOut()}
+                        onLongPress={()=>this.startTouch(index)}
+                        onPress={()=>{
+                            if (this.props.onClickItem) {
+                                this.props.onClickItem(this.getOriginalData(),item.data,index)
+                            }
+                        }}>
+                        {this.props.renderItem(item.data,index)}
+                    </TouchableOpacity>
+                </Animated.View>
+            )
+        })
     }
 
     componentWillUnmount() {
@@ -404,7 +406,8 @@ DragSortableView.propsTypes = {
     onDataChange: PropTypes.func,
     renderItem: PropTypes.func.isRequired,
     scaleStatus: PropTypes.oneOf('scale','scaleX','scaleY'),
-    fixedItems: PropTypes.array
+    fixedItems: PropTypes.array,
+    keyExtractor: PropTypes.func
 }
 
 DragSortableView.defaultProps = {

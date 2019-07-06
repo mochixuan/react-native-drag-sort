@@ -96,6 +96,7 @@ export class SortAndFixedPage extends Component{
                     onDragEnd={this.onSelectedDragEnd}
                     onDataChange = {(data)=>{this.setState({selectedItems: data})}}
                     onClickItem={this.onSelectedClickItem}
+                    keyExtractor={(item,index)=> item.text} // FlatList作用一样，优化
                     renderItem={this.renderSelectedItemView}/>
                 <View style={[styles.hurdle,{justifyContent: 'flex-start',marginTop: 40}]}>
                     <Text style={styles.hurdle_title}>{'推荐频道'}</Text>
@@ -109,6 +110,7 @@ export class SortAndFixedPage extends Component{
                     marginChildrenTop={10}
                     onDataChange = {(data)=>{this.setState({unselectedItems: data})}}
                     onClickItem={this.onUnSelectedClickItem}
+                    keyExtractor={(item,index)=> item.text} // FlatList作用一样，优化
                     renderItem={this.renderUnSelectedItemView}/>
             </ScrollView>
         )

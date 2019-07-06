@@ -93,6 +93,7 @@ export class CommonSortPage extends Component{
                     onDragStart={this.onSelectedDragStart}
                     onDragEnd={this.onSelectedDragEnd}
                     onDataChange = {(data)=>{this.setState({selectedItems: data})}}
+                    keyExtractor={(item,index)=> item.text} // FlatList作用一样，优化
                     onClickItem={this.onSelectedClickItem}
                     renderItem={this.renderSelectedItemView}/>
                 <View style={[styles.hurdle,{justifyContent: 'flex-start',marginTop: 40}]}>
@@ -106,6 +107,7 @@ export class CommonSortPage extends Component{
                     childrenHeight={childrenHeight}
                     marginChildrenTop={10}
                     onDataChange = {(data)=>{this.setState({unselectedItems: data})}}
+                    keyExtractor={(item,index)=> item.text} // FlatList作用一样，优化
                     onClickItem={this.onUnSelectedClickItem}
                     renderItem={this.renderUnSelectedItemView}/>
             </ScrollView>

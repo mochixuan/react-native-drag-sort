@@ -48,6 +48,7 @@ export default class NonScrollPage extends Component{
                                 })
                             }
                         }}
+                        keyExtractor={(item,index)=> item.txt} // FlatList作用一样，优化
                         onClickItem={(data,item,index)=>{
                             //delete
                             if (this.state.isEnterEdit) {

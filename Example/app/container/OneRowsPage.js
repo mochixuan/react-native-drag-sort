@@ -53,6 +53,7 @@ export default class OneRowsPage extends Component{
                             })
                         }
                     }}
+                    keyExtractor={(item,index)=> item.txt} // FlatList作用一样，优化
                     onClickItem={(data,item,index)=>{
 
                     }}

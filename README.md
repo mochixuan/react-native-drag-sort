@@ -4,6 +4,7 @@ Drag and drop sort control for react-native
 ![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
 [![npm](https://img.shields.io/npm/v/react-native-drag-sort.svg?style=flat)](https://npmjs.com/package/react-native-drag-sort)
 
+### [Android版演示地址](https://fir.im/dragsort)
 
 #### 2019.7 
 > 1.x版本结束，该优化的都优化，而且出现的问题都已经解决。接下来将编写2.x版本，预计添加自动兼容ScrollView滑动、滑动删除功能等。

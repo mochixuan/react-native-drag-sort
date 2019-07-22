@@ -9,7 +9,6 @@ import {CommonSortPage} from "./app/container/CommonSortPage";
 import OneRowsPage from "./app/container/OneRowsPage";
 import {SortAndFixedPage} from "./app/container/SortAndFixedPage";
 
-
 const App  = StackNavigator({
     MainPage: {screen: MainPage},
     ScrollPage: {screen: ScrollPage},

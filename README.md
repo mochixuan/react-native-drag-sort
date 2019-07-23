@@ -11,6 +11,7 @@ Drag and drop sort control for react-native
 
 - 修复一个小问题。
 - 添加一个熟悉keyExtractor:(item,index) => key 实现性能优化，类似FlatList的keyExtractor，当删除Item时不会再闪烁(重绘)。
+- 添加delayLongPress属性:按下到触发的时间，自定义长按多久出发
 
 #### 2019.6 新增顶部固定功能，可以设置开始连续几个为不可拖动功能，类似今日头条一样，该功能和今日头条拖拽一样，可以去对比一下。
 ![ezgif.com-resize.gif](https://upload-images.jianshu.io/upload_images/2646598-405b01d61547c972.gif?imageMogr2/auto-orient/strip)
@@ -81,6 +82,6 @@ npm i react-native-drag-sort --save
 - **renderItem** : PropTypes.func.isRequired, //render item view
 - **fixedItems**:PropTypes.array //no remove
 - **keyExtractor**: keyExtractor: PropTypes.func //(item,index) => key
-
+- **delayLongPress**: PropTypes.number,
 
 

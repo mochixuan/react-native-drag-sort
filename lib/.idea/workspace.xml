@@ -26,7 +26,7 @@
       <file leaf-file-name="DragSortableView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DragSortableView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="7790">
               <caret line="411" column="18" selection-start-line="411" selection-start-column="4" selection-end-line="411" selection-end-column="18" />
             </state>
           </provider>
@@ -84,9 +84,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="781" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -157,17 +158,17 @@
       <workItem from="1562388261161" duration="202000" />
       <workItem from="1562566803374" duration="16000" />
       <workItem from="1563852658865" duration="109000" />
+      <workItem from="1564126107120" duration="97000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2414000" />
+    <option name="totallyTimeSpent" value="2511000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="781" extended-state="6" />
     <layout>
-      <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20014144" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20014144" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -175,13 +176,14 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3815988" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3815988" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -194,6 +196,34 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DragSortableView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7790">
+          <caret line="411" column="18" selection-start-line="411" selection-start-column="4" selection-end-line="411" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -462,7 +492,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DragSortableView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="7790">
           <caret line="411" column="18" selection-start-line="411" selection-start-column="4" selection-end-line="411" selection-end-column="18" />
         </state>
       </provider>

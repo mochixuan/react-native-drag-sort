@@ -8,34 +8,33 @@ Drag and drop sort control for react-native
 - [English](https://github.com/mochixuan/react-native-drag-sort/blob/master/README.md) 
 - [中文](https://github.com/mochixuan/react-native-drag-sort/blob/master/README_ZH.md)
 
-### [Download Android example](https://fir.im/dragsort)
-
-### Update Progress
+### [Android版演示地址](https://fir.im/dragsort)
 
 #### 2019.7 
-> The 1.x version ends, the optimizations are optimized, and the problems that have occurred have been resolved. The 2.x version will be written next, and it is expected to add an auto-compatible ScrollView slide, slide delete function, and so on.
+> 1.x版本结束，该优化的都优化，而且出现的问题都已经解决。接下来将编写2.x版本，预计添加自动兼容ScrollView滑动、滑动删除功能等。
 
-- Fix a small problem.
-- Add a familiar keyExtractor:(item,index) => key to achieve performance optimization, similar to FlatList's keyExtractor, will not flash (repaint) when deleting Item.
-- Add the delayLongPress property: press to the time of the trigger, customize how long to start
+- 修复一个小问题。
+- 添加一个熟悉keyExtractor:(item,index) => key 实现性能优化，类似FlatList的keyExtractor，当删除Item时不会再闪烁(重绘)。
+- 添加delayLongPress属性:按下到触发的时间，自定义长按多久出发
 
 #### 2019.6 
-> Added the top fixed function, you can set the start of several consecutive non-dragable functions, similar to today's headlines, this function is the same as today's headline drag and drop, you can compare
+> 新增顶部固定功能，可以设置开始连续几个为不可拖动功能，类似今日头条一样，该功能和今日头条拖拽一样，可以去对比一下。
 
 ![ezgif.com-resize.gif](https://upload-images.jianshu.io/upload_images/2646598-405b01d61547c972.gif?imageMogr2/auto-orient/strip)
 
-#### 2019.3
-> Add a single-line drag-and-drop demo. In fact, this function is consistent. This drag-and-drop plug-in is inherently adaptive. It will take time to optimize the ScrollView problem and make the control bring the ScrollView function。
+#### 2019.3: 
+> 新增单行拖拽演示，其实这个功能一致，这个拖拽插件本来就是自适应行,有时间会整体优化下ScrollView问题，使控件自带ScrollView功能。
 
 ![one-line.gif](https://upload-images.jianshu.io/upload_images/2646598-dd17c76291514316.gif?imageMogr2/auto-orient/strip)
 
 #### 2019.2: 
-> Optimize drag and drop automatically when not moving, now this plugin should have no problems. Add a real-world demo example, and there will be time to animate this example. When deleting, the item goes down to the item animation to be selected, and the item to be selected is selected. And automatically slide down the animation when sliding。
+> 优化拖拽不移动时自动恢复，现在这个插件应该没有任何问题。新加一个实战演示例子，后面有时间会对这个例子进行加动画，删除时item向下到待选的item动画，和待选到item。还有滑动时自动向下滑动动画。
 
-![demo.gif](https://upload-images.jianshu.io/upload_images/2646598-bd118152420cc0a9.gif?imageMogr2/auto-orient/strip)
+![ezgif.com-video-to-gif.gif](https://upload-images.jianshu.io/upload_images/2646598-bd118152420cc0a9.gif?imageMogr2/auto-orient/strip)
+
+----
 
 ### Performance
-
 ![Demonstration.gif](https://upload-images.jianshu.io/upload_images/2646598-f3ece6209cb07e43.gif?imageMogr2/auto-orient/strip)
 
 ### Installation
@@ -93,4 +92,7 @@ npm i react-native-drag-sort --save
 - **renderItem** : PropTypes.func.isRequired, //render item view
 - **fixedItems**:PropTypes.array //no remove
 - **keyExtractor**: keyExtractor: PropTypes.func //(item,index) => key
-- **delayLongPress**: PropTypes.number
+- **delayLongPress**: PropTypes.number,
+
+
+

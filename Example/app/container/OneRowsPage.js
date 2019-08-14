@@ -85,7 +85,7 @@ export default class OneRowsPage extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f0f0f0'
+        backgroundColor: '#f0f0f0',
     },
     item: {
         width: childrenWidth,

@@ -388,7 +388,7 @@ export default class DragSortableView extends Component{
 
 }
 
-DragSortableView.propsTypes = {
+DragSortableView.propTypes = {
     dataSource: PropTypes.array.isRequired,
     parentWidth: PropTypes.number,
     childrenHeight: PropTypes.number.isRequired,

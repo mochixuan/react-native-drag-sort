@@ -19,6 +19,8 @@ export default class NonScrollPage extends Component{
             scrollEnabled: true,
             isEnterEdit: false,
         }
+
+        this.index = 1;
     }
 
     render() {
@@ -65,8 +67,9 @@ export default class NonScrollPage extends Component{
                 </View>
                 {
                     <TouchableOpacity style={styles.button} onPress={()=> {
+                        this.index = this.index + 1;
                         const  newData = [...this.state.data] //pointer problem
-                        newData.push( {icon: require('../data/img/animal10.png'),txt: 'New'})
+                        newData.push( {icon: require('../data/img/animal10.png'),txt: 'New'+this.index})
                         this.setState({
                             data: newData
                         })

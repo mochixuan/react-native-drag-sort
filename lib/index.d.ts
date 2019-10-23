@@ -20,8 +20,10 @@ interface IProps{
   renderItem: (item: any,index: number) => React.ReactElement<any>;
   scaleStatus?: 'scale' | 'scaleX' |'scaleY';
   fixedItems?: number[];
-  keyExtractor?: (item: any,index: number) => any,
-  delayLongPress?: number
+  keyExtractor?: (item: any,index: number) => any;
+  delayLongPress?: number;
+  isDragFreely?: boolean;
+  onDragging?: (gestureState: any,left: number,top: number) => void;
 }
 
 export default class DragSortableView extends Component<IProps>{}

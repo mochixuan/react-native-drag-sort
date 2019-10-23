@@ -9,6 +9,7 @@ import {
 import ScrollPage from "./container/ScrollPage";
 import NonScrollPage from "./container/NonScrollPage";
 import {CommonSortPage} from "./container/CommonSortPage";
+import DragDeletePage from "./container/DragDeletePage";
 const {width}  = Dimensions.get('window')
 
 export default class MainPage extends Component{
@@ -44,6 +45,11 @@ export default class MainPage extends Component{
                 {
                     this.renderButtonStyle('SortAndFixedPage', () => {
                         this.props.navigation.navigate('SortAndFixedPage')
+                    })
+                }
+                {
+                    this.renderButtonStyle('DragDeletePage', () => {
+                        this.props.navigation.navigate('DragDeletePage')
                     })
                 }
             </View>

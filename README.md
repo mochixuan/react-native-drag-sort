@@ -12,6 +12,15 @@ Drag and drop sort control for react-native
 
 ### Update Progress
 
+#### 2019.10
+> Add a new scene based on user needs.
+
+- Add attribute (isDragFreely): Whether to limit the drag space.
+- Add property callback function (onDragging)
+- Add demo Demo: DragDeletePage
+
+![dragdelete.gif](https://upload-images.jianshu.io/upload_images/2646598-4d22ddb8f92a6563.gif?imageMogr2/auto-orient/strip)
+
 #### 2019.7 
 > The 1.x version ends, the optimizations are optimized, and the problems that have occurred have been resolved. The 2.x version will be written next, and it is expected to add an auto-compatible ScrollView slide, slide delete function, and so on.
 
@@ -94,3 +103,5 @@ npm i react-native-drag-sort --save
 - **fixedItems**:PropTypes.array //no remove
 - **keyExtractor**: keyExtractor: PropTypes.func //(item,index) => key
 - **delayLongPress**: PropTypes.number
+- **isDragFreely**: PropTypes.bool, // Whether to limit the drag space
+- **onDragging**: PropTypes.func

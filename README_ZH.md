@@ -10,6 +10,15 @@ Drag and drop sort control for react-native
 
 ### [Android版演示地址](https://fir.im/dragsort)
 
+#### 2019.10
+> 根据网友需求添加一个新的场景。
+
+- 添加属性(isDragFreely): 是否限制拖动空间。
+- 添加属性移动时回调函数(onDragging)
+- 添加演示Demo: DragDeletePage 
+
+![dragdelete.gif](https://upload-images.jianshu.io/upload_images/2646598-4d22ddb8f92a6563.gif?imageMogr2/auto-orient/strip)
+
 #### 2019.7 
 > 1.x版本结束，该优化的都优化，而且出现的问题都已经解决。接下来将编写2.x版本，预计添加自动兼容ScrollView滑动、滑动删除功能等。
 
@@ -93,6 +102,8 @@ npm i react-native-drag-sort --save
 - **fixedItems**:PropTypes.array //no remove
 - **keyExtractor**: keyExtractor: PropTypes.func //(item,index) => key
 - **delayLongPress**: PropTypes.number,
+- **isDragFreely**: PropTypes.bool, // Whether to limit the drag space
+- **onDragging**: PropTypes.func
 
 
 

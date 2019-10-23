@@ -101,18 +101,20 @@ export default class DragSortableView extends Component{
             const maxWidth = this.props.parentWidth-this.itemWidth
             const maxHeight = this.itemHeight*Math.ceil(this.state.dataSource.length/rowNum) - this.itemHeight
 
-            //出界后取最大或最小值
-            if (this.touchCurItem.originLeft + dx < 0) {
-                dx = -this.touchCurItem.originLeft
-            } else if (this.touchCurItem.originLeft + dx > maxWidth) {
-                dx = maxWidth - this.touchCurItem.originLeft
+            // Is it free to drag
+            if (!this.props.isDragFreely) {
+                // Maximum or minimum after out of bounds
+                if (this.touchCurItem.originLeft + dx < 0) {
+                    dx = -this.touchCurItem.originLeft
+                } else if (this.touchCurItem.originLeft + dx > maxWidth) {
+                    dx = maxWidth - this.touchCurItem.originLeft
+                }
+                if (this.touchCurItem.originTop + dy < 0) {
+                    dy = -this.touchCurItem.originTop
+                } else if (this.touchCurItem.originTop + dy > maxHeight) {
+                    dy = maxHeight - this.touchCurItem.originTop
+                }
             }
-            if (this.touchCurItem.originTop + dy < 0) {
-                dy = -this.touchCurItem.originTop
-            } else if (this.touchCurItem.originTop + dy > maxHeight) {
-                dy = maxHeight - this.touchCurItem.originTop
-            }
-
 
             let left = this.touchCurItem.originLeft + dx
             let top = this.touchCurItem.originTop + dy
@@ -128,6 +130,9 @@ export default class DragSortableView extends Component{
                 y: top,
             })
 
+            if (this.props.onDragging) {
+                this.props.onDragging(gestureState,left,top)
+            }
 
             let moveToIndex = 0
             let moveXNum = dx/this.itemWidth
@@ -145,7 +150,11 @@ export default class DragSortableView extends Component{
 
             moveToIndex = this.touchCurItem.index+moveXNum+moveYNum*rowNum
 
-            if (moveToIndex > this.state.dataSource.length-1) moveToIndex = this.state.dataSource.length-1
+            if (moveToIndex > this.state.dataSource.length-1) {
+                moveToIndex = this.state.dataSource.length-1
+            } else if (moveToIndex < 0) {
+                moveToIndex = 0;
+            }
 
             if (this.touchCurItem.moveToIndex != moveToIndex ) {
                 const fixedItems = this.props.fixedItems;
@@ -410,6 +419,8 @@ DragSortableView.propTypes = {
     fixedItems: PropTypes.array,
     keyExtractor: PropTypes.func,
     delayLongPress: PropTypes.number,
+    isDragFreely: PropTypes.bool,
+    onDragging: PropTypes.func
 }
 
 DragSortableView.defaultProps = {
@@ -421,6 +432,7 @@ DragSortableView.defaultProps = {
     sortable: true,
     scaleStatus: 'scale',
     fixedItems: [],
+    isDragFreely: false,
 }
 
 const styles = StyleSheet.create({

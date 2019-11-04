@@ -1,6 +1,6 @@
 {
   "name": "react-native-drag-sort",
-  "version": "1.3.5",
+  "version": "1.4.0",
   "description": "Drag and drop sort control for react-native",
   "main": "index.js",
   "scripts": {

@@ -105,3 +105,7 @@ npm i react-native-drag-sort --save
 - **delayLongPress**: PropTypes.number
 - **isDragFreely**: PropTypes.bool, // Whether to limit the drag space
 - **onDragging**: PropTypes.func
+- **maxScale**: PropTypes.number;
+- **minOpacity**: PropTypes.number;
+- **scaleDuration**: PropTypes.number;
+- **slideDuration**: PropTypes.number;

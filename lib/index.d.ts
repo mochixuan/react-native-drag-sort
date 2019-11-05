@@ -24,6 +24,11 @@ interface IProps{
   delayLongPress?: number;
   isDragFreely?: boolean;
   onDragging?: (gestureState: any,left: number,top: number) => void;
+
+  maxScale?: number;
+  minOpacity?: number;
+  scaleDuration?: number;
+  slideDuration?: number;
 }
 
 export default class DragSortableView extends Component<IProps>{}

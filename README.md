@@ -10,6 +10,8 @@ Drag and drop sort control for react-native
 
 ### [Download Android example](https://fir.im/dragsort)
 
+![](https://user-gold-cdn.xitu.io/2019/12/20/16f227b20501cd75?w=128&h=128&f=png&s=2098)
+
 ### Update Progress
 
 #### 2019.10
@@ -75,6 +77,7 @@ npm i react-native-drag-sort --save
             })
         }
     }}
+    keyExtractor={(item,index)=> item.id}
     onClickItem={(data,item,index)=>{}}
     renderItem={(item,index)=>{
         return this.renderItem(item,index)

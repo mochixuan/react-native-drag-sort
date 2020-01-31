@@ -126,10 +126,6 @@ export default class DragSortableView extends Component{
                 y: top,
             })
 
-            if (this.props.onDragging) {
-                this.props.onDragging(gestureState,left,top)
-            }
-
             let moveToIndex = 0
             let moveXNum = dx/this.itemWidth
             let moveYNum = dy/this.itemHeight
@@ -150,6 +146,10 @@ export default class DragSortableView extends Component{
                 moveToIndex = this.state.dataSource.length-1
             } else if (moveToIndex < 0) {
                 moveToIndex = 0;
+            }
+
+            if (this.props.onDragging) {
+                this.props.onDragging(gestureState, left, top, moveToIndex)
             }
 
             if (this.touchCurItem.moveToIndex != moveToIndex ) {
@@ -206,14 +206,16 @@ export default class DragSortableView extends Component{
                     toValue: 1,
                     duration: this.props.scaleDuration,
                 }
-            ).start()
-            this.touchCurItem.ref.setNativeProps({
-                style: {
-                    zIndex: defaultZIndex,
-                }
+            ).start(()=>{
+                this.touchCurItem.ref.setNativeProps({
+                    style: {
+                        zIndex: defaultZIndex,
+                    }
+                })
+                this.changePosition(this.touchCurItem.index,this.touchCurItem.moveToIndex)
+                this.touchCurItem = null
             })
-            this.changePosition(this.touchCurItem.index,this.touchCurItem.moveToIndex)
-            this.touchCurItem = null
+            
         }
     }
 

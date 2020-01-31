@@ -9,6 +9,8 @@ import {CommonSortPage} from "./app/container/CommonSortPage";
 import OneRowsPage from "./app/container/OneRowsPage";
 import {SortAndFixedPage} from "./app/container/SortAndFixedPage";
 import {DragDeletePage} from "./app/container/DragDeletePage";
+import AutomaticSlidingOnePage from "./app/container/AutomaticSlidingOnePage";
+import AutomaticSlidingThreePage from "./app/container/AutomaticSlidingThreePage";
 
 const App  = StackNavigator({
     MainPage: {screen: MainPage},
@@ -19,6 +21,8 @@ const App  = StackNavigator({
     OneRowsPage: {screen: OneRowsPage},
     SortAndFixedPage: {screen: SortAndFixedPage},
     DragDeletePage: {screen: DragDeletePage},
+    AutomaticSlidingOnePage: {screen: AutomaticSlidingOnePage},
+    AutomaticSlidingThreePage: {screen: AutomaticSlidingThreePage},
 },{
     navigationOptions: {
         gesturesEnabled: true

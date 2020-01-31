@@ -12,6 +12,19 @@ Drag and drop sort control for react-native
 
 ![](https://user-gold-cdn.xitu.io/2019/12/20/16f227b20501cd75?w=128&h=128&f=png&s=2098)
 
+#### 2020.1 新增自动滑动功能
+
+##### 如果你不需要自动滑动功能可以使用或者对Android效果不满意可以暂时使用DragSortableView(稳定、可靠、较长时间没人提issus Bug了)，如果你想要使用自动滑动请使用AutoDragSortableView。
+
+##### 自动滑动功能完成。iOS实现平滑的自动滑动功能。Android实现固定时间滑动1个Item。由于Android调用scrollTo后刷新比较缓慢，造成抖动，所以使用固定时间滑动1个Item,这个折中的方法。也可以通过参数: autoThrottle(单位时间滑动距离)、autoThrottleDuration(定时滑动一个距离的时间)。
+1. 建议使用Demo设置: Android自动滑动时每400ms滑动一个Item高度, iOS自动滑动时每10ms滑动2。
+2. 如果想实现Android和iOS一样的效果可以配置autoThrottle={2}、autoThrottleDuration={10}
+3. 后期有时间会优化: 触发滑动条件优化、Android滑动时抖动优化。
+
+![](https://user-gold-cdn.xitu.io/2020/1/31/16ff953e160a4a8c?w=240&h=514&f=gif&s=3394945)
+
+![](https://user-gold-cdn.xitu.io/2020/1/31/16ff9538f47c623a?w=240&h=514&f=gif&s=4241359)
+
 #### 2019.10
 > 根据网友需求添加一个新的场景。
 
@@ -111,6 +124,8 @@ npm i react-native-drag-sort --save
 - **minOpacity**: PropTypes.number;
 - **scaleDuration**: PropTypes.number;
 - **slideDuration**: PropTypes.number;
+- **autoThrottle**: PropTypes.number;
+- **autoThrottleDuration**: PropTypes.number;
 
 
 

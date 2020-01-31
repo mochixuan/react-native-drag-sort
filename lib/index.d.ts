@@ -23,7 +23,7 @@ interface IProps{
   keyExtractor?: (item: any,index: number) => any;
   delayLongPress?: number;
   isDragFreely?: boolean;
-  onDragging?: (gestureState: any,left: number,top: number) => void;
+  onDragging?: (gestureState: any, left: number, top: number, moveToIndex: number) => void;
 
   maxScale?: number;
   minOpacity?: number;
@@ -31,4 +31,12 @@ interface IProps{
   slideDuration?: number;
 }
 
-export default class DragSortableView extends Component<IProps>{}
+interface AutoIProps extends IProps {
+  autoThrottle: number?,
+  autoThrottleDuration: number?,
+}
+
+class DragSortableView extends Component<IProps>{}
+class AutoDragSortableView extends Component<AutoIProps> {}
+
+export { DragSortableView, AutoDragSortableView }

@@ -14,6 +14,19 @@ Drag and drop sort control for react-native
 
 ### Update Progress
 
+#### 2020.1 Added auto swipe function
+
+##### If you do not need the auto-sliding function to use or are not satisfied with the Android effect, you can temporarily use DragSortableView (stable, reliable, long-term no-issus bug), if you want to use auto-sliding please use AutoDragSortableView。
+
+##### The auto slide function is complete. iOS implements smooth auto-sliding. Android implements sliding an Item at a fixed time. After Android calls scrollTo, the refresh is relatively slow, causing jitter, so using a fixed time to slide 1 Item, this compromise method. You can also pass parameters: autoThrottle (sliding distance per unit time), autoThrottleDuration (time to slide a distance regularly)。
+1. It is recommended to use Demo settings: Android automatically slides an item height every 400ms, and iOS automatically slides 2 every 10ms.
+2. If you want to achieve the same effect as Android and iOS, you can configure autoThrottle = {2}, autoThrottleDuration = {10}
+3. There will be time to optimize in the later period: trigger sliding condition optimization, Android jitter optimization when sliding.
+
+![](https://user-gold-cdn.xitu.io/2020/1/31/16ff953e160a4a8c?w=240&h=514&f=gif&s=3394945)
+
+![](https://user-gold-cdn.xitu.io/2020/1/31/16ff9538f47c623a?w=240&h=514&f=gif&s=4241359)
+
 #### 2019.10
 > Add a new scene based on user needs.
 
@@ -112,3 +125,5 @@ npm i react-native-drag-sort --save
 - **minOpacity**: PropTypes.number;
 - **scaleDuration**: PropTypes.number;
 - **slideDuration**: PropTypes.number;
+- **autoThrottle**: PropTypes.number;
+- **autoThrottleDuration**: PropTypes.number;

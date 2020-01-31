@@ -6,7 +6,7 @@ import {
     Dimensions,
     TouchableOpacity,
     Image,
-    ScrollView
+    ScrollView,
 } from 'react-native'
 import DragSortableView from '../widget/DragSortableView'
 

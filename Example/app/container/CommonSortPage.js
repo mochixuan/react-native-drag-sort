@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     Image,
     ScrollView,
+    SafeAreaView,
 } from 'react-native'
 import DragSortableView from '../widget/DragSortableView'
 
@@ -75,7 +76,8 @@ export class CommonSortPage extends Component{
 
     render() {
         return (
-            <ScrollView
+            <SafeAreaView style={{backgroundColor: '#fff'}}>
+                <ScrollView
                 scrollEnabled = {this.state.scrollEnabled}
                 style={styles.container}>
                 <View style={styles.hurdle}>
@@ -111,6 +113,7 @@ export class CommonSortPage extends Component{
                     onClickItem={this.onUnSelectedClickItem}
                     renderItem={this.renderUnSelectedItemView}/>
             </ScrollView>
+            </SafeAreaView>
         )
     }
 

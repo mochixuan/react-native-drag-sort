@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {
-    View, Text, Dimensions, Image, StyleSheet,StatusBar,
+    View, Text, Dimensions, Image, StyleSheet,StatusBar,SafeAreaView
 } from 'react-native'
 import DragSortableView from '../widget/DragSortableView'
 import {TEST_DATA} from "../data/base/BaseConstant";

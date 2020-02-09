@@ -8,17 +8,30 @@ Drag and drop sort control for react-native
 - [English](https://github.com/mochixuan/react-native-drag-sort/blob/master/README.md) 
 - [中文](https://github.com/mochixuan/react-native-drag-sort/blob/master/README_ZH.md)
 
-### [Download Android example](https://fir.im/dragsort)
+### Installation
 
-![](https://user-gold-cdn.xitu.io/2019/12/20/16f227b20501cd75?w=128&h=128&f=png&s=2098)
+```bash
+yarn add react-native-drag-sort
+or
+npm i react-native-drag-sort --save 
+
+export { DragSortableView, AutoDragSortableView }
+```
+
+### important hint
+1. [Download Android example](https://fir.im/dragsort)
+2. You must write the attribute keyExtractor = {(item, index) => item.id} id is the unique identification of your data, there is no index to replace item.id.
+3. If Android Debug mode is compared to the card. Please package and install and test, release will not get stuck. Or test animation is very smooth under iOS.
+
+#### 2020.2 Removed componentWillReceiveProps / componentWillMount method
+> Using Fiber after React 16.3, React rendering has become asynchronous rendering. For details, please Google React Fiber.
+
+React <16.3 Please quote react-native-drag-sort@2.0.1
+React> 16.3 Please quote react-native-drag-sort @ latest
 
 ### Update Progress
 
 #### 2020.1 Added auto swipe function
-
-```
-export { DragSortableView, AutoDragSortableView }
-```
 
 ##### If you do not need the auto-sliding function to use or are not satisfied with the Android effect, you can temporarily use DragSortableView (stable, reliable, long-term no-issus bug), if you want to use auto-sliding please use AutoDragSortableView。
 
@@ -79,14 +92,6 @@ export { DragSortableView, AutoDragSortableView }
 [ScrollPage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/ScrollPage.js)
 
 ![Demonstration.gif](https://upload-images.jianshu.io/upload_images/2646598-f3ece6209cb07e43.gif?imageMogr2/auto-orient/strip)
-
-### Installation
-
-```bash
-yarn add react-native-drag-sort
-or
-npm i react-native-drag-sort --save 
-```
 
 ### Example
 - [ScrollView](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/ScrollPage.js)

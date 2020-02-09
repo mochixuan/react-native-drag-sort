@@ -8,15 +8,29 @@ Drag and drop sort control for react-native
 - [English](https://github.com/mochixuan/react-native-drag-sort/blob/master/README.md) 
 - [中文](https://github.com/mochixuan/react-native-drag-sort/blob/master/README_ZH.md)
 
-### [Android版演示地址](https://fir.im/dragsort)
+### Installation
 
-![](https://user-gold-cdn.xitu.io/2019/12/20/16f227b20501cd75?w=128&h=128&f=png&s=2098)
+```bash
+yarn add react-native-drag-sort
+or
+npm i react-native-drag-sort --save 
 
-#### 2020.1 新增自动滑动功能
-
-```
 export { DragSortableView, AutoDragSortableView }
 ```
+
+### 重要提示
+1. [Android版演示地址](https://fir.im/dragsort)
+2. 必须要写属性 keyExtractor={(item,index)=> item.id} id为你数据的唯一识别，没有可用index代替item.id。
+3. Android Debug模式比较卡的话。请打包再安装测试，release是不会卡的。或者iOS下测试动画是很流畅。
+
+#### 2020.2 去除了componentWillReceiveProps/componentWillMount方法。
+> React16.3后使用Fiber, React渲染变成了异步渲染，具体请Google React Fiber.
+
+React < 16.3 请引用 react-native-drag-sort@2.0.1
+React > 16.3 请引用react-native-drag-sort@latest
+
+
+#### 2020.1 新增自动滑动功能
 
 ##### 如果你不需要自动滑动功能可以使用或者对Android效果不满意可以暂时使用DragSortableView(稳定、可靠、较长时间没人提issus Bug了)，如果你想要使用自动滑动请使用AutoDragSortableView。
 
@@ -80,14 +94,6 @@ export { DragSortableView, AutoDragSortableView }
 [ScrollPage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/ScrollPage.js)
 
 ![Demonstration.gif](https://upload-images.jianshu.io/upload_images/2646598-f3ece6209cb07e43.gif?imageMogr2/auto-orient/strip)
-
-### Installation
-
-```bash
-yarn add react-native-drag-sort
-or
-npm i react-native-drag-sort --save 
-```
 
 ### Example
 - [ScrollView](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/ScrollPage.js)

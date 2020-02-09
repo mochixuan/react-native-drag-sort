@@ -17,7 +17,86 @@ export default class AutoDragSortableView extends Component{
         this.itemWidth = props.childrenWidth+props.marginChildrenLeft+props.marginChildrenRight
         this.itemHeight = props.childrenHeight+props.marginChildrenTop+props.marginChildrenBottom
 
-        this.reComplexDataSource(true,props)
+        // this.reComplexDataSource(true,props) // react < 16.3
+        // react > 16.3 Fiber
+        const rowNum = parseInt(props.parentWidth / this.itemWidth);
+        const dataSource = props.dataSource.map((item, index) => {
+            const newData = {}
+            const left = (index % rowNum) * this.itemWidth
+            const top = parseInt((index / rowNum)) * this.itemHeight
+
+            newData.data = item
+            newData.originIndex = index
+            newData.originLeft = left
+            newData.originTop = top
+            newData.position = new Animated.ValueXY({
+                x: parseInt(left + 0.5),
+                y: parseInt(top + 0.5),
+            })
+            newData.scaleValue = new Animated.Value(1)
+            return newData
+        });
+        this.state = {
+            dataSource: dataSource,
+            curPropsDataSource: props.dataSource,
+            height: Math.ceil(dataSource.length / rowNum) * this.itemHeight,
+        };
+
+        this._panResponder = PanResponder.create({
+            onStartShouldSetPanResponder: (evt, gestureState) => true,
+            onStartShouldSetPanResponderCapture: (evt, gestureState) => {
+                this.isMovePanResponder = false
+                return false
+            },
+            onMoveShouldSetPanResponder: (evt, gestureState) => this.isMovePanResponder,
+            onMoveShouldSetPanResponderCapture: (evt, gestureState) => this.isMovePanResponder,
+
+            onPanResponderGrant: (evt, gestureState) => {},
+            onPanResponderMove: (evt, gestureState) => this.moveTouch(evt, gestureState),
+            onPanResponderRelease: (evt, gestureState) => this.endTouch(evt),
+
+            onPanResponderTerminationRequest: (evt, gestureState) => false,
+            onShouldBlockNativeResponder: (evt, gestureState) => false,
+        })
+    }
+
+    // react < 16.3
+    // componentWillReceiveProps(nextProps) {
+    //     if (this.props.dataSource != nextProps.dataSource) {
+    //         this.reComplexDataSource(false,nextProps)
+    //     }
+    // }
+
+    // react > 16.3 Fiber
+    static getDerivedStateFromProps(nextprops, prevState) {
+        if (nextprops.dataSource != prevState.curPropsDataSource) {
+            const itemWidth = nextprops.childrenWidth + nextprops.marginChildrenLeft + nextprops.marginChildrenRight
+            const itemHeight = nextprops.childrenHeight + nextprops.marginChildrenTop + nextprops.marginChildrenBottom
+            const rowNum = parseInt(nextprops.parentWidth / itemWidth);
+            const dataSource = nextprops.dataSource.map((item, index) => {
+                const newData = {};
+                const left = index % rowNum * itemWidth;
+                const top = parseInt(index / rowNum) * itemHeight;
+
+                newData.data = item;
+                newData.originIndex = index;
+                newData.originLeft = left;
+                newData.originTop = top;
+                newData.position = new Animated.ValueXY({
+                    x: parseInt(left + 0.5),
+                    y: parseInt(top + 0.5),
+                });
+                newData.scaleValue = new Animated.Value(1);
+                return newData;
+            });
+            return {
+                dataSource: dataSource,
+                curPropsDataSource: nextprops.dataSource,
+                height: Math.ceil(dataSource.length / rowNum) * itemHeight
+            }
+        }
+
+        return null;
     }
 
     componentDidMount() {
@@ -93,31 +172,6 @@ export default class AutoDragSortableView extends Component{
             this.dealtScrollStatus();
             this.moveTouch(null,{dx: this.autoObj.scrollDx, dy: this.autoObj.curDy + this.autoObj.scrollDy})
         }, autoThrottleDuration)
-    }
-
-    componentWillMount() {
-        this._panResponder = PanResponder.create({
-            onStartShouldSetPanResponder: (evt, gestureState) => true,
-            onStartShouldSetPanResponderCapture: (evt, gestureState) => {
-                this.isMovePanResponder = false
-                return false
-            },
-            onMoveShouldSetPanResponder: (evt, gestureState) => this.isMovePanResponder,
-            onMoveShouldSetPanResponderCapture: (evt, gestureState) => this.isMovePanResponder,
-
-            onPanResponderGrant: (evt, gestureState) => {},
-            onPanResponderMove: (evt, gestureState) => this.moveTouch(evt,gestureState),
-            onPanResponderRelease: (evt, gestureState) => this.endTouch(evt),
-
-            onPanResponderTerminationRequest: (evt, gestureState) => false,
-            onShouldBlockNativeResponder: (evt, gestureState) => false,
-        })
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (this.props.dataSource != nextProps.dataSource) {
-            this.reComplexDataSource(false,nextProps)
-        }
     }
 
     startTouch(touchIndex) {
@@ -362,10 +416,12 @@ export default class AutoDragSortableView extends Component{
 
         if (startIndex == endIndex) {
             const curItem = this.state.dataSource[startIndex]
-            this.state.dataSource[startIndex].position.setValue({
-                x: parseInt(curItem.originLeft+0.5),
-                y: parseInt(curItem.originTop+0.5),
-            })
+            if (curItem != null) {
+                curItem.position.setValue({
+                    x: parseInt(curItem.originLeft + 0.5),
+                    y: parseInt(curItem.originTop + 0.5),
+                })
+            }
             return;
         }
 

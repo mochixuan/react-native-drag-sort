@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Dimensions, Image, StyleSheet, Text, View,ScrollView} from 'react-native'
+import {Dimensions, Image, StyleSheet, Text, View,ScrollView,SafeAreaView} from 'react-native'
 import DragSortableView from '../widget/DragSortableView'
 import {TEST_DATA} from '../data/base/BaseConstant'
 
@@ -22,7 +22,8 @@ export default class OneRowsPage extends Component{
 
     render() {
         return (
-            <ScrollView
+            <SafeAreaView style={{backgroundColor: '#fff',flex: 1}}>
+                <ScrollView
                 ref={(scrollView)=> this.scrollView = scrollView}
                 scrollEnabled = {this.state.scrollEnabled}
                 style={styles.container}>
@@ -62,6 +63,7 @@ export default class OneRowsPage extends Component{
                     }}
                 />
             </ScrollView>
+            </SafeAreaView>
         )
     }
 

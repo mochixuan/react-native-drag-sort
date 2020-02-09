@@ -6,7 +6,8 @@ import {
     Dimensions,
     TouchableOpacity,
     Image,
-    ScrollView
+    ScrollView,
+    SafeAreaView
 } from 'react-native'
 import DragSortableView from '../widget/DragSortableView'
 
@@ -76,7 +77,8 @@ export class SortAndFixedPage extends Component{
 
     render() {
         return (
-            <ScrollView
+            <SafeAreaView style={{backgroundColor: '#fff',flex: 1}}>
+                <ScrollView
                 scrollEnabled = {this.state.scrollEnabled}
                 style={styles.container}>
                 <View style={styles.hurdle}>
@@ -113,6 +115,7 @@ export class SortAndFixedPage extends Component{
                     keyExtractor={(item,index)=> item.text} // FlatList作用一样，优化
                     renderItem={this.renderUnSelectedItemView}/>
             </ScrollView>
+            </SafeAreaView>
         )
     }
 

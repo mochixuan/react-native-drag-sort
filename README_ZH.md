@@ -26,8 +26,8 @@ export { DragSortableView, AutoDragSortableView }
 #### 2020.2 去除了componentWillReceiveProps/componentWillMount方法。
 > React16.3后使用Fiber, React渲染变成了异步渲染，具体请Google React Fiber.
 
-React < 16.3 请引用 react-native-drag-sort@2.0.1
-React > 16.3 请引用react-native-drag-sort@latest
+- React < 16.3 请引用 react-native-drag-sort@2.0.1
+- React > 16.3 请引用react-native-drag-sort@latest
 
 
 #### 2020.1 新增自动滑动功能

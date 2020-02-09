@@ -26,8 +26,8 @@ export { DragSortableView, AutoDragSortableView }
 #### 2020.2 Removed componentWillReceiveProps / componentWillMount method
 > Using Fiber after React 16.3, React rendering has become asynchronous rendering. For details, please Google React Fiber.
 
-React <16.3 Please quote react-native-drag-sort@2.0.1
-React> 16.3 Please quote react-native-drag-sort @ latest
+- React <16.3 Please quote react-native-drag-sort@2.0.1
+- React> 16.3 Please quote react-native-drag-sort@ latest
 
 ### Update Progress
 

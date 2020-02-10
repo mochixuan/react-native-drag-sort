@@ -23,6 +23,12 @@ export { DragSortableView, AutoDragSortableView }
 2. You must write the attribute keyExtractor = {(item, index) => item.id} id is the unique identification of your data, there is no index to replace item.id.
 3. If Android Debug mode is compared to the card. Please package and install and test, release will not get stuck. Or test animation is very smooth under iOS.
 
+#### 2020.2 New Demo Fixed Add Button Demo
+
+[ScrollFixedAddPage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/ScrollFixedAddPage.js)
+
+![](https://user-gold-cdn.xitu.io/2020/2/10/1702ea81299f097d?w=240&h=400&f=gif&s=863218)
+
 #### 2020.2 Removed componentWillReceiveProps / componentWillMount method
 > Using Fiber after React 16.3, React rendering has become asynchronous rendering. For details, please Google React Fiber.
 

@@ -23,6 +23,12 @@ export { DragSortableView, AutoDragSortableView }
 2. 必须要写属性 keyExtractor={(item,index)=> item.id} id为你数据的唯一识别，没有可用index代替item.id。
 3. Android Debug模式比较卡的话。请打包再安装测试，release是不会卡的。或者iOS下测试动画是很流畅。
 
+#### 2020.2 新增演示固定添加按钮Demo
+
+[ScrollFixedAddPage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/ScrollFixedAddPage.js)
+
+![](https://user-gold-cdn.xitu.io/2020/2/10/1702ea81299f097d?w=240&h=400&f=gif&s=863218)
+
 #### 2020.2 去除了componentWillReceiveProps/componentWillMount方法。
 > React16.3后使用Fiber, React渲染变成了异步渲染，具体请Google React Fiber.
 

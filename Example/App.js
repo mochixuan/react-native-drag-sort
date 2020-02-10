@@ -3,6 +3,7 @@ import {StackNavigator} from 'react-navigation'
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator'
 import MainPage from "./app/MainPage";
 import ScrollPage from "./app/container/ScrollPage";
+import ScrollFixedAddPage from "./app/container/ScrollFixedAddPage";
 import NonScrollPage from "./app/container/NonScrollPage";
 import FixedRowsPage from "./app/container/FixedRowsPage";
 import {CommonSortPage} from "./app/container/CommonSortPage";
@@ -15,6 +16,7 @@ import AutomaticSlidingThreePage from "./app/container/AutomaticSlidingThreePage
 const App  = StackNavigator({
     MainPage: {screen: MainPage},
     ScrollPage: {screen: ScrollPage},
+    ScrollFixedAddPage: {screen: ScrollFixedAddPage},
     NonScrollPage: {screen: NonScrollPage},
     FixedRowsPage: {screen: FixedRowsPage},
     CommonSortPage: {screen: CommonSortPage},

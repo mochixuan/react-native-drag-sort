@@ -22,6 +22,11 @@ export default class MainPage extends Component{
                         })
                     }
                     {
+                        this.renderButtonStyle('ScrollFixedAddPage', () => {
+                            this.props.navigation.navigate('ScrollFixedAddPage')
+                        })
+                    }
+                    {
                         this.renderButtonStyle('Non-ScrollView Page',()=>{
                             this.props.navigation.navigate('NonScrollPage')
                         })

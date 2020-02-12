@@ -14,16 +14,16 @@ export default class DragSortableView extends Component{
 
         this.sortRefs = new Map()
 
-        this.itemWidth = props.childrenWidth+props.marginChildrenLeft+props.marginChildrenRight
-        this.itemHeight = props.childrenHeight+props.marginChildrenTop+props.marginChildrenBottom
+        const itemWidth = props.childrenWidth+props.marginChildrenLeft+props.marginChildrenRight
+        const itemHeight = props.childrenHeight+props.marginChildrenTop+props.marginChildrenBottom
 
         // this.reComplexDataSource(true,props) // react < 16.3
         // react > 16.3 Fiber
-        const rowNum = parseInt(props.parentWidth/this.itemWidth);
+        const rowNum = parseInt(props.parentWidth/itemWidth);
         const dataSource = props.dataSource.map((item,index)=>{
             const newData = {}
-            const left = (index%rowNum)*this.itemWidth
-            const top = parseInt((index/rowNum))*this.itemHeight
+            const left = (index%rowNum)*itemWidth
+            const top = parseInt((index/rowNum))*itemHeight
 
             newData.data = item
             newData.originIndex = index
@@ -39,7 +39,9 @@ export default class DragSortableView extends Component{
         this.state = {
             dataSource: dataSource,
             curPropsDataSource: props.dataSource,
-            height: Math.ceil(dataSource.length / rowNum) * this.itemHeight,
+            height: Math.ceil(dataSource.length / rowNum) * itemHeight,
+            itemWidth,
+            itemHeight,
         };
 
         this._panResponder = PanResponder.create({
@@ -68,34 +70,36 @@ export default class DragSortableView extends Component{
     // }
 
     // react > 16.3 Fiber
-    static getDerivedStateFromProps(nextprops,prevState) {
-        if (nextprops.dataSource != prevState.curPropsDataSource) {
-            const itemWidth = nextprops.childrenWidth + nextprops.marginChildrenLeft + nextprops.marginChildrenRight
-            const itemHeight = nextprops.childrenHeight + nextprops.marginChildrenTop + nextprops.marginChildrenBottom
-            const rowNum = parseInt (nextprops.parentWidth / itemWidth);
-            const dataSource = nextprops.dataSource.map ((item, index) => {
+    static getDerivedStateFromProps(nextprops, prevState) {
+        const itemWidth = nextprops.childrenWidth + nextprops.marginChildrenLeft + nextprops.marginChildrenRight
+        const itemHeight = nextprops.childrenHeight + nextprops.marginChildrenTop + nextprops.marginChildrenBottom
+        if (nextprops.dataSource != prevState.curPropsDataSource || itemWidth !== prevState.itemWidth || itemHeight !== prevState.itemHeight) {
+            
+            const rowNum = parseInt(nextprops.parentWidth / itemWidth);
+            const dataSource = nextprops.dataSource.map((item, index) => {
                 const newData = {};
                 const left = index % rowNum * itemWidth;
-                const top = parseInt (index / rowNum) * itemHeight;
+                const top = parseInt(index / rowNum) * itemHeight;
 
                 newData.data = item;
                 newData.originIndex = index;
                 newData.originLeft = left;
                 newData.originTop = top;
-                newData.position = new Animated.ValueXY ({
-                    x: parseInt (left + 0.5),
-                    y: parseInt (top + 0.5),
+                newData.position = new Animated.ValueXY({
+                    x: parseInt(left + 0.5),
+                    y: parseInt(top + 0.5),
                 });
-                newData.scaleValue = new Animated.Value (1);
+                newData.scaleValue = new Animated.Value(1);
                 return newData;
             });
             return {
                 dataSource: dataSource,
                 curPropsDataSource: nextprops.dataSource,
-                height: Math.ceil(dataSource.length/rowNum)*itemHeight
+                height: Math.ceil(dataSource.length / rowNum) * itemHeight,
+                itemWidth,
+                itemHeight,
             }
         }
-
         return null;
     }
 
@@ -146,10 +150,12 @@ export default class DragSortableView extends Component{
 
             let dx = gestureState.dx
             let dy = gestureState.dy
+            const itemWidth = this.state.itemWidth;
+            const itemHeight = this.state.itemHeight;
 
-            const rowNum = parseInt(this.props.parentWidth/this.itemWidth);
-            const maxWidth = this.props.parentWidth-this.itemWidth
-            const maxHeight = this.itemHeight*Math.ceil(this.state.dataSource.length/rowNum) - this.itemHeight
+            const rowNum = parseInt(this.props.parentWidth/itemWidth);
+            const maxWidth = this.props.parentWidth-itemWidth
+            const maxHeight = itemHeight*Math.ceil(this.state.dataSource.length/rowNum) - itemHeight
 
             // Is it free to drag
             if (!this.props.isDragFreely) {
@@ -181,8 +187,8 @@ export default class DragSortableView extends Component{
             })
 
             let moveToIndex = 0
-            let moveXNum = dx/this.itemWidth
-            let moveYNum = dy/this.itemHeight
+            let moveXNum = dx/itemWidth
+            let moveYNum = dy/itemHeight
             if (moveXNum > 0) {
                 moveXNum = parseInt(moveXNum+0.5)
             } else if (moveXNum < 0) {
@@ -354,11 +360,13 @@ export default class DragSortableView extends Component{
     }
 
     reComplexDataSource(isInit,props) {
-        const rowNum = parseInt(props.parentWidth/this.itemWidth);
+        const itemWidth = this.state.itemWidth;
+        const itemHeight = this.state.itemHeight;
+        const rowNum = parseInt(props.parentWidth/itemWidth);
         const dataSource = props.dataSource.map((item,index)=>{
             const newData = {}
-            const left = (index%rowNum)*this.itemWidth
-            const top = parseInt((index/rowNum))*this.itemHeight
+            const left = (index%rowNum)*itemWidth
+            const top = parseInt((index/rowNum))*itemHeight
 
             newData.data = item
             newData.originIndex = index
@@ -375,12 +383,12 @@ export default class DragSortableView extends Component{
         if (isInit) {
             this.state = {
                 dataSource: dataSource,
-                height: Math.ceil(dataSource.length/rowNum)*this.itemHeight
+                height: Math.ceil(dataSource.length/rowNum)*itemHeight
             }
         } else {
             this.setState({
                 dataSource: dataSource,
-                height: Math.ceil(dataSource.length/rowNum)*this.itemHeight
+                height: Math.ceil(dataSource.length/rowNum)*itemHeight
             })
         }
 

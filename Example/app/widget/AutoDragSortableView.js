@@ -147,14 +147,7 @@ export default class AutoDragSortableView extends Component{
         if (this.autoInterval != null) {
             return;
         }
-        const autoThrottle = this.props.autoThrottle != null ? 
-                                this.props.autoThrottle :
-                                (Platform.OS === 'ios' ? 2 : this.props.childrenHeight);
-        const autoThrottleDuration = this.props.autoThrottleDuration != null ?
-                                this.props.autoThrottleDuration :
-                                (Platform.OS === 'ios' ? 10 : 400)
 
-        this.testNum = 0;
         // Start automatic swipe
         this.autoInterval = setInterval(() => {
             if (this.autoObj.forceScrollStatus === 0 ||
@@ -168,14 +161,22 @@ export default class AutoDragSortableView extends Component{
                 return;
             }
             if (this.autoObj.forceScrollStatus === 1) {
-                this.autoObj.scrollDy = this.autoObj.scrollDy + autoThrottle;
+                this.autoObj.scrollDy = this.autoObj.scrollDy + this.props.autoThrottle;
             } else if (this.autoObj.forceScrollStatus === -1){
-                this.autoObj.scrollDy = this.autoObj.scrollDy - autoThrottle;
+                this.autoObj.scrollDy = this.autoObj.scrollDy - this.props.autoThrottle;
             }
             this.scrollTo(this.autoObj.scrollDy, false);
             this.dealtScrollStatus();
-            this.moveTouch(null,{dx: this.autoObj.scrollDx, dy: this.autoObj.curDy + this.autoObj.scrollDy})
-        }, autoThrottleDuration)
+            // Android slide time 30ms-50ms, iOS close to 0ms, optimize Android jitter
+            if (Platform.OS === 'android') {
+                setTimeout(()=>{ 
+                    if (this.isHasMove) this.moveTouch(null,{dx: this.autoObj.scrollDx, dy: this.autoObj.curDy + this.autoObj.scrollDy})
+                },0)
+            } else {
+                this.moveTouch(null,{dx: this.autoObj.scrollDx, dy: this.autoObj.curDy + this.autoObj.scrollDy})
+            }
+            
+        }, this.props.autoThrottleDuration)
     }
 
     startTouch(touchIndex) {
@@ -262,8 +263,8 @@ export default class AutoDragSortableView extends Component{
                 if (nativeEvent != null) {
                     const tempStatus = this.autoObj.forceScrollStatus;
                     // Automatic sliding
-                    const minDownDiss = curDis + this.props.childrenHeight * (1 + (this.props.maxScale - 1) / 2) + this.props.marginChildrenTop;
-                    const maxUpDiss = curDis + this.props.marginChildrenTop;
+                    const minDownDiss = curDis + this.props.childrenHeight * (1 + (this.props.maxScale - 1) / 2) + this.props.marginChildrenTop + this.props.headerViewHeight;
+                    const maxUpDiss = curDis + this.props.marginChildrenTop + this.props.headerViewHeight;
                     if ((tempStatus === 0 || tempStatus === 2) && vy > 0.01 && minDownDiss > this.curScrollData.windowHeight) {
                         this.autoObj.curDy = dy;
                         this.autoObj.forceScrollStatus = 1;
@@ -381,6 +382,8 @@ export default class AutoDragSortableView extends Component{
     }
 
     endTouch (nativeEvent) {
+        this.isHasMove = false;
+
         this.initTag()
         //clear
         if (this.touchCurItem) {
@@ -570,7 +573,8 @@ export default class AutoDragSortableView extends Component{
                 ref={(scrollRef)=> this.scrollRef = scrollRef}
                 scrollEnabled = {this.state.scrollEnabled}
                 onScroll={this.onScrollListener}
-                style={styles.container}>
+                style={styles.container}>  
+                {this.props.renderHeaderView ? this.props.renderHeaderView : null} 
                 <View
                     //ref={(ref)=>this.sortParentRef=ref}
                     style={[styles.swipe,{
@@ -581,6 +585,7 @@ export default class AutoDragSortableView extends Component{
                     >
                     {this._renderItemView()}
                 </View>
+                {this.props.renderBottomView ? this.props.renderBottomView : null}
             </ScrollView>
         )
     }
@@ -662,6 +667,10 @@ AutoDragSortableView.propTypes = {
     slideDuration: PropTypes.number,
     autoThrottle: PropTypes.number,
     autoThrottleDuration: PropTypes.number,
+    renderHeaderView: PropTypes.element,
+    headerViewHeight: PropTypes.number,
+    renderBottomView: PropTypes.element,
+    bottomViewHeight: PropTypes.number,
 }
 
 AutoDragSortableView.defaultProps = {
@@ -678,6 +687,10 @@ AutoDragSortableView.defaultProps = {
     minOpacity: 0.8,
     scaleDuration: 100,
     slideDuration: 300,
+    autoThrottle: 2,
+    autoThrottleDuration: 10,
+    headerViewHeight: 0,
+    bottomViewHeight: 0,
 }
 
 const styles = StyleSheet.create({

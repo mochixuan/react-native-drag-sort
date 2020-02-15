@@ -34,6 +34,10 @@ interface IProps{
 interface AutoIProps extends IProps {
   autoThrottle: number?,
   autoThrottleDuration: number?,
+  renderHeaderView: any?,
+  headerViewHeight: number?,
+  renderBottomView: any?,
+  bottomViewHeight: number?,
 }
 
 class DragSortableView extends Component<IProps>{}

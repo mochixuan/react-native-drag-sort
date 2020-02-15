@@ -23,7 +23,7 @@ export default class AutomaticSlidingOnePage extends Component {
         return (
             <SafeAreaView style={{flex: 1}}>
                 <View style={styles.header}>
-                    <Text style={styles.header_title}>Automatic Sliding: One</Text>
+                    <Text style={styles.header_title}>Automatic Sliding: Single Line</Text>
                 </View>
                 <AutoDragSortableView
                     dataSource={this.state.data}
@@ -33,6 +33,7 @@ export default class AutomaticSlidingOnePage extends Component {
                     marginChildrenBottom={10}
                     marginChildrenRight={10}
                     marginChildrenLeft = {10}
+                    marginChildrenTop={10}
                     childrenHeight={childrenHeight}
                     
                     onDataChange = {(data)=>{
@@ -54,12 +55,10 @@ export default class AutomaticSlidingOnePage extends Component {
     renderItem(item,index) {
         return (
             <View style={styles.item}>
-                <View style={styles.item_children}>
-                    <Image
-                        style={styles.item_icon}
-                        source={item.icon}/>
-                    <Text style={styles.item_text}>{item.txt}</Text>
+                <View style={styles.item_icon_swipe}>
+                    <Image style={styles.item_icon} source={item.icon}/>
                 </View>
+                <Text style={styles.item_text}>{item.txt}</Text>
             </View>
         )
     }
@@ -81,33 +80,37 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
     },
     header_title: {
-        color: '#2ecc71',
+        color: '#333',
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     item: {
         width: childrenWidth,
         height: childrenHeight,
-        justifyContent: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-    },
-    item_children: {
-        width: childrenWidth,
-        height: childrenHeight-4,
         backgroundColor: '#2ecc71',
-        flexDirection: 'column',
-        alignItems: 'center',
+        borderRadius: 4,
+    },
+    item_icon_swipe: {
+        width: childrenHeight-10,
+        height: childrenHeight-10,
+        backgroundColor: '#fff',
+        borderRadius: (childrenHeight - 10) / 2,
+        marginLeft: 20,
         justifyContent: 'center',
-        borderRadius: 8,
-        marginTop: 4,
+        alignItems: 'center',
     },
     item_icon: {
-        width: childrenHeight*0.2,
-        height: childrenHeight*0.2,
+        width: childrenHeight-20,
+        height: childrenHeight-20,
         resizeMode: 'contain',
     },
     item_text: {
         color: '#fff',
-        marginTop: 10
+        fontSize: 20,
+        marginRight: 20,
+        fontWeight: 'bold',
     }
 })

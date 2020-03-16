@@ -39,7 +39,7 @@ interface AutoIProps extends IProps {
   renderBottomView?: any,
   bottomViewHeight?: number,
 }
-
+ 
 declare class DragSortableView extends Component<IProps>{}
 declare class AutoDragSortableView extends Component<AutoIProps> {}
 

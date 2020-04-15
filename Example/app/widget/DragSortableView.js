@@ -124,6 +124,7 @@ export default class DragSortableView extends Component{
                 {
                     toValue: this.props.maxScale,
                     duration: this.props.scaleDuration,
+                    useNativeDriver: false,
                 }
             ).start(()=>{
                 this.touchCurItem = {
@@ -242,6 +243,7 @@ export default class DragSortableView extends Component{
                                 toValue: {x: parseInt(nextItem.originLeft+0.5),y: parseInt(nextItem.originTop+0.5)},
                                 duration: this.props.slideDuration,
                                 easing: Easing.out(Easing.quad),
+                                useNativeDriver: false,
                             }
                         ).start()
                     }
@@ -265,6 +267,7 @@ export default class DragSortableView extends Component{
                 {
                     toValue: 1,
                     duration: this.props.scaleDuration,
+                    useNativeDriver: false,
                 }
             ).start(()=>{
                 this.touchCurItem.ref.setNativeProps({

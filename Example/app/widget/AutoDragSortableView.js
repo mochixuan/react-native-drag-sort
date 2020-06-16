@@ -171,7 +171,7 @@ export default class AutoDragSortableView extends Component{
             if (Platform.OS === 'android') {
                 setTimeout(()=>{ 
                     if (this.isHasMove) this.moveTouch(null,{dx: this.autoObj.scrollDx, dy: this.autoObj.curDy + this.autoObj.scrollDy})
-                },0)
+                },1)
             } else {
                 this.moveTouch(null,{dx: this.autoObj.scrollDx, dy: this.autoObj.curDy + this.autoObj.scrollDy})
             }

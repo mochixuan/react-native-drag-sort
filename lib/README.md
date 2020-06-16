@@ -101,5 +101,3 @@ export { DragSortableView, AutoDragSortableView }
 
 ```
 
-### [Download Android example](https://fir.im/dragsort)
-

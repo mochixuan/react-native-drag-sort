@@ -1222,7 +1222,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.dragsort.test;
+				PRODUCT_BUNDLE_IDENTIFIER = org.dragsort.test1;
 				PRODUCT_NAME = Example;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1242,7 +1242,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.dragsort.test;
+				PRODUCT_BUNDLE_IDENTIFIER = org.dragsort.test1;
 				PRODUCT_NAME = Example;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

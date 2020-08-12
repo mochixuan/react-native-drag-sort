@@ -115,7 +115,8 @@ export default class DragSortableView extends Component{
 
         if (!this.props.sortable) return
 
-        if (this.sortRefs.has(touchIndex)) {
+        const key = this._getKey(touchIndex);
+        if (this.sortRefs.has(key)) {
             if (this.props.onDragStart) {
                 this.props.onDragStart(touchIndex)
             }
@@ -128,7 +129,7 @@ export default class DragSortableView extends Component{
                 }
             ).start(()=>{
                 this.touchCurItem = {
-                    ref: this.sortRefs.get(touchIndex),
+                    ref: this.sortRefs.get(key),
                     index: touchIndex,
                     originLeft: this.state.dataSource[touchIndex].originLeft,
                     originTop: this.state.dataSource[touchIndex].originTop,
@@ -416,15 +417,20 @@ export default class DragSortableView extends Component{
         )
     }
 
+    _getKey = (index) => {
+        const item = this.state.dataSource[index];
+        return this.props.keyExtractor ? this.props.keyExtractor(item.data, index) : item.originIndex;
+    }
+
     _renderItemView = () => {
         return this.state.dataSource.map((item,index)=>{
             const transformObj = {}
             transformObj[this.props.scaleStatus] = item.scaleValue
-            const key = this.props.keyExtractor ? this.props.keyExtractor(item.data,index) : item.originIndex
+            const key = this._getKey(index);
             return (
                 <Animated.View
                     key={key}
-                    ref={(ref) => this.sortRefs.set(index,ref)}
+                    ref={(ref) => this.sortRefs.set(key,ref)}
                     {...this._panResponder.panHandlers}
                     style={[styles.item,{
                         marginTop: this.props.marginChildrenTop,

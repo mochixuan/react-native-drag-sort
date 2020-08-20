@@ -114,7 +114,7 @@ export default class AutoDragSortableView extends Component{
 
     // Compatible with different systems and paging loading
     autoMeasureHeight = () => {
-        if (!this.isHasMeasure && this.scrollRef) {
+        if (!this.isHasMeasure) {
             setTimeout(()=>{
                 this.scrollTo(1, false)
                 this.scrollTo(0, false)
@@ -571,7 +571,7 @@ export default class AutoDragSortableView extends Component{
             //Barrel effect, the slowest is 1.x1
             this.curScrollData.hasScroll = false;
         }
-        this.scrollRef.scrollTo({x: 0, y: height, animated})
+        this.scrollRef && this.scrollRef.scrollTo({x: 0, y: height, animated});
     }
 
     onScrollListener = ({nativeEvent}) => {

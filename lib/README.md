@@ -71,6 +71,12 @@ export { DragSortableView, AutoDragSortableView }
 - **autoThrottleDuration**: PropTypes.number;
 - **renderHeaderView**: PropTypes.element,
 - **headerViewHeight**: PropTypes.number,
+- **scrollIndicatorInsets**: PropTypes.shape({
+  top: PropTypes.number,
+  left: PropTypes.number,
+  bottom: PropTypes.number,
+  right: PropTypes.number
+}),
 - **renderBottomView**: PropTypes.element,
 - **bottomViewHeight**: PropTypes.number,
 

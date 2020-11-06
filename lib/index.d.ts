@@ -36,6 +36,7 @@ interface AutoIProps extends IProps {
   autoThrottleDuration?: number,
   renderHeaderView?: any,
   headerViewHeight?: number,
+  scrollIndicatorInsets?: {top: number, left: number, bottom: number, right: number},
   renderBottomView?: any,
   bottomViewHeight?: number,
 }

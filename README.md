@@ -80,7 +80,7 @@ isRequired if there is a * in the name field
 
 ### Example
 
-``` react
+```jsx
 <DragSortableView
     dataSource={this.state.data}
     parentWidth={parentWidth}
@@ -102,6 +102,4 @@ isRequired if there is a * in the name field
         return this.renderItem(item,index)
     }}
 />
-
 ```
-

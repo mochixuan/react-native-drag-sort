@@ -104,7 +104,7 @@ export { DragSortableView, AutoDragSortableView }
 - [View](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/NonScrollPage.js)
 - [Fixed Rows](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/FixedRowsPage.js)
 
-``` react
+```jsx
 <DragSortableView
     dataSource={this.state.data}
     parentWidth={parentWidth}
@@ -124,7 +124,6 @@ export { DragSortableView, AutoDragSortableView }
     renderItem={(item,index)=>{
         return this.renderItem(item,index)
     }}/>
-
 ```
 
 ### API

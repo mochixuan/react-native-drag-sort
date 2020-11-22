@@ -104,7 +104,7 @@ export { DragSortableView, AutoDragSortableView }
 - [View](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/NonScrollPage.js)
 - [Fixed Rows](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/FixedRowsPage.js)
 
-``` react
+```jsx
 <DragSortableView
     dataSource={this.state.data}
     parentWidth={parentWidth}
@@ -124,35 +124,36 @@ export { DragSortableView, AutoDragSortableView }
     renderItem={(item,index)=>{
         return this.renderItem(item,index)
     }}/>
-
 ```
 
 ### API
-- **dataSource**: PropTypes.array.isRequired :
-- **parentWidth**: PropTypes.number //parent width
-- **childrenHeight**: PropTypes.number.isRequired, //Each item height
-- **childrenWidth**: PropTypes.number.isRequired,//Each item width
 
-- **marginChildrenTop**: PropTypes.number,  //So the item's outermost view adds margin, you can only use this method.
-- **marginChildrenBottom**: PropTypes.number,
-- **marginChildrenLeft** : PropTypes.number,
-- **marginChildrenRight** : PropTypes.number,
+isRequired if there is a * in the name field
 
-- **sortable**: PropTypes.bool, //Do not allow dragging
-
-- **onClickItem**: PropTypes.func, //click
-- **onDragStart**: PropTypes.func, 
-- **onDragEnd** : PropTypes.func,
-- **onDataChange** : PropTypes.func, //This method is called every time the data changes.
-- **renderItem** : PropTypes.func.isRequired, //render item view
-- **fixedItems**:PropTypes.array //no remove
-- **keyExtractor**: keyExtractor: PropTypes.func //(item,index) => key
-- **delayLongPress**: PropTypes.number
-- **isDragFreely**: PropTypes.bool, // Whether to limit the drag space
-- **onDragging**: PropTypes.func
-- **maxScale**: PropTypes.number;
-- **minOpacity**: PropTypes.number;
-- **scaleDuration**: PropTypes.number;
-- **slideDuration**: PropTypes.number;
-- **autoThrottle**: PropTypes.number;
-- **autoThrottleDuration**: PropTypes.number;
+|name|Proptypes|Description|
+----|----|-----|
+**dataSource** *|array
+**parentWidth**|number|parent width
+**childrenHeight** *|number|Each item height
+**childrenWidth** *|number|Each item width
+**marginChildrenTop**|number|So the item's outermost view adds margin, you can only use this method.
+**marginChildrenBottom**|number
+**marginChildrenLeft**|number
+**marginChildrenRight**|number
+**sortable**|bool|Do not allow dragging
+**onClickItem**|func|click
+**onDragStart**|func
+**onDragEnd**|func
+**onDataChange**|func|This method is called every time the data changes.
+**renderItem** *|func|render item view
+**fixedItems**|array|no remove
+**keyExtractor**|func|(item,index) => key
+**delayLongPress**|number
+**isDragFreely**|bool|Whether to limit the drag space
+**onDragging**|func
+**maxScale**|number
+**minOpacity**|number
+**scaleDuration**|number
+**slideDuration**|number
+**autoThrottle**|number
+**autoThrottleDuration**|number

@@ -559,6 +559,7 @@ export default class AutoDragSortableView extends Component{
     }
 
     scrollTo = (height, animated = true) => {
+        this.isHasMeasure = true
         // Prevent iOS from sliding when elastically sliding negative numbers
         if (this.curScrollData) {
             if (this.autoObj.forceScrollStatus < 0 && this.curScrollData.offsetY <= 0) {

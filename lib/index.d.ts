@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NativeSyntheticEvent, NativeScrollEvent } from 'react-native'
 
 interface IProps{
   dataSource: any[];
@@ -39,6 +40,8 @@ interface AutoIProps extends IProps {
   scrollIndicatorInsets?: {top: number, left: number, bottom: number, right: number},
   renderBottomView?: any,
   bottomViewHeight?: number,
+  onScrollListener?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void,
+  onScrollRef?: (ref: any) => void
 }
  
 declare class DragSortableView extends Component<IProps>{}

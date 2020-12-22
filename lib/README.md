@@ -79,6 +79,8 @@ isRequired if there is a * in the name field
 |**bottomViewHeight**|number
 |**onScrollListener** | (event: NativeSyntheticEvent<NativeScrollEvent>) => void 
 |**onScrollRef** | (ref: any) => void
+|**refreshControl**|element
+
 
 ### Example
 

@@ -14,6 +14,9 @@ interface IProps{
 
   sortable?: boolean;
 
+  refreshing?: boolean;
+  onRefresh?: (() => void) | null;
+
   onClickItem?: (data: any[],item: any,index: number) => void;
   onDragStart?: (fromIndex: number) => void;
   onDragEnd?: (fromIndex: number,toIndex: number) => void;

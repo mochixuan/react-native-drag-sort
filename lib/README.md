@@ -16,10 +16,22 @@ yarn add react-native-drag-sort
 or
 npm i react-native-drag-sort --save 
 
-export { DragSortableView, AutoDragSortableView }
+export { DragSortableView, AutoDragSortableView, AnySizeDragSortableView }
 ```
 
+### Tip
+
+> Use priority: DragSortableView > AutoDragSortableView > AnySizeDragSortableView
+
+- 1、If the width and height are fixed and there is no need to slide, use DragSortableView.
+- 2、If the width and height are fixed and you need to slide, use AutoDragSortableView.
+- 3、If the width and height are arbitrary and need to slide, please use AnySizeDragSortableView.
+
 ### Performance（GIF）
+
+[AnyThreePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AnyThreePage.js) | [AnyThreePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AnyThreePage.js)
+| ------ | ----------- | 
+![ezgif.com-gif-maker.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/185edf5865a843148dcf953f3064fa2d~tplv-k3u1fbpfcp-watermark.image) | ![ezgif.com-gif-maker.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/162ca401740a4ee09e8230626756df1d~tplv-k3u1fbpfcp-watermark.image)
 
 [AutomaticSlidingOnePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AutomaticSlidingOnePage.js) | [AutomaticSlidingThreePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AutomaticSlidingThreePage.js)
 | ------ | ----------- | 
@@ -80,6 +92,31 @@ isRequired if there is a * in the name field
 |**onScrollListener** | (event: NativeSyntheticEvent<NativeScrollEvent>) => void 
 |**onScrollRef** | (ref: any) => void
 
+##### AnySizeDragSortableView
+
+|name|Proptypes|Description|
+----|----|-----|
+|**dataSource** *|array|
+|**keyExtractor**|func.isRequired|(item,index) => key
+|**renderItem** *|func|render item view
+|**onDataChange**|func|This method is called every time the data changes.
+|**renderHeaderView**|element
+|**headerViewHeight**|number
+|**renderBottomView**|element
+|**bottomViewHeight**|number
+|**autoThrottle**|number
+|**autoThrottleDuration**|number
+|**onDragEnd**|func
+|**scrollIndicatorInsets**|({top:number, left:number, bottom:number, right:number})|
+|**onScrollListener** | (event: NativeSyntheticEvent<NativeScrollEvent>) => void 
+|**onScrollRef** | (ref: any) => void
+|**areaOverlapRatio**|number| Must be greater than 0.5
+|**movedWrapStyle**| StyleProp<ViewStyle> |style
+|**childMarginTop**|number
+|**childMarginBottom**|number
+|**childMarginLeft**|number
+|**childMarginRight**|number
+
 ### Example
 
 ```jsx
@@ -104,4 +141,40 @@ isRequired if there is a * in the name field
         return this.renderItem(item,index)
     }}
 />
+
+// ====== AnySizeDragSortableView start =======
+
+constructor(props) {
+    super(props);
+    this.sortableViewRef = createRef()
+}
+
+<AnySizeDragSortableView
+    ref={this.sortableViewRef}
+    dataSource={items}
+    keyExtractor={(item) => item.text} // 1、isRequired
+    renderItem={this._renderItem}
+    onDataChange={(data, callback)=> {
+        this.setState({items: data},()=>{
+            callback() // isRequired
+        })
+    }}
+/>
+
+_renderItem = (item, index, isMoved) => {
+    return (
+    	<TouchableOpacity
+	        onLongPress={() => {
+	            this.sortableViewRef.current.startTouch(item, index) // 2、isRequired	        }}
+	        onPressOut = {() => {
+	        	this.sortableViewRef.current.onPressOut() 3、isRequired
+	        }}
+	      >
+      	<...>
+      </TouchableOpacity>
+    )
+}
+
+
+// ====== AnySizeDragSortableView end =======
 ```

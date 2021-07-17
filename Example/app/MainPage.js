@@ -18,6 +18,11 @@ export default class MainPage extends Component{
                 <ScrollView>
                     <View style={styles.container}>
                         {
+                            this.renderButtonStyle('AnyThreePage', () => {
+                                this.props.navigation.navigate('AnyThreePage')
+                            })
+                        }
+                        {
                             this.renderButtonStyle('AutomaticSlidingOnePage', () => {
                                 this.props.navigation.navigate('AutomaticSlidingOnePage')
                             })

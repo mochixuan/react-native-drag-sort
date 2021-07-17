@@ -31,7 +31,7 @@ export { DragSortableView, AutoDragSortableView, AnySizeDragSortableView }
 
 [AnyThreePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AnyThreePage.js) | [AnyThreePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AnyThreePage.js)
 | ------ | ----------- | 
-![ezgif.com-gif-maker.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/185edf5865a843148dcf953f3064fa2d~tplv-k3u1fbpfcp-watermark.image) | ![ezgif.com-gif-maker.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/162ca401740a4ee09e8230626756df1d~tplv-k3u1fbpfcp-watermark.image)
+![Anysize](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/185edf5865a843148dcf953f3064fa2d~tplv-k3u1fbpfcp-watermark.image) | ![Anysize](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/162ca401740a4ee09e8230626756df1d~tplv-k3u1fbpfcp-watermark.image)
 
 [AutomaticSlidingOnePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AutomaticSlidingOnePage.js) | [AutomaticSlidingThreePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AutomaticSlidingThreePage.js)
 | ------ | ----------- | 

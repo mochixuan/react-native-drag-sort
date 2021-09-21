@@ -112,6 +112,7 @@ isRequired if there is a * in the name field
 |**onScrollRef** | (ref: any) => void
 |**areaOverlapRatio**|number| Must be greater than 0.5
 |**movedWrapStyle**| StyleProp<ViewStyle> |style
+|**ghostStyle**| StyleProp<ViewStyle> |style
 |**childMarginTop**|number
 |**childMarginBottom**|number
 |**childMarginLeft**|number

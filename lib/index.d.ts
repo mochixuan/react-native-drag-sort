@@ -61,6 +61,7 @@ interface AnySizeIProps{
   onScrollRef?: (ref: any) => void
   areaOverlapRatio?: number,
   movedWrapStyle: StyleProp<ViewStyle>,
+  ghostStyle: StyleProp<ViewStyle>,
   childMarginTop?: number,
   childMarginBottom?: number,
   childMarginLeft?: number,

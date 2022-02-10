@@ -35,7 +35,7 @@ export { DragSortableView, AutoDragSortableView, AnySizeDragSortableView }
 
 [AutomaticSlidingOnePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AutomaticSlidingOnePage.js) | [AutomaticSlidingThreePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/AutomaticSlidingThreePage.js)
 | ------ | ----------- | 
-| ![](https://user-gold-cdn.xitu.io/2020/2/15/170487f5ce137e15?w=240&h=514&f=gif&s=2527386) | ![](https://user-gold-cdn.xitu.io/2020/2/15/1704896e0729f8b7?w=240&h=514&f=gif&s=4958289) 
+| ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/15/170487f5ce137e15~tplv-t2oaga2asx-image.image) | ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/15/1704896e0729f8b7~tplv-t2oaga2asx-image.image) 
 
 [ScrollFixedAddPage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/ScrollFixedAddPage.js) | [DragDeletePage](https://github.com/mochixuan/react-native-drag-sort/blob/master/Example/app/container/DragDeletePage.js)  
 | ------ | ----------- |

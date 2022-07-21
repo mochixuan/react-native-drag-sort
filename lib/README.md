@@ -75,6 +75,7 @@ isRequired if there is a * in the name field
 |**onDragging**|func
 |**maxScale**|number
 |**minOpacity**|number
+|**activeOpacity**|number
 
 #### The following attributes belong only to AutoDragSortableView
 

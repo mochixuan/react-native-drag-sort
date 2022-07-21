@@ -30,6 +30,7 @@ interface IProps{
   minOpacity?: number;
   scaleDuration?: number;
   slideDuration?: number;
+  activeOpacity?: number;
 }
 
 interface AutoIProps extends IProps {

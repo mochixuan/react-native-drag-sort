@@ -1,7 +1,7 @@
 # react-native-drag-sort
 Drag and drop sort control for react-native
 
-This is a fork that fixes AutoDragSortableView's bug, where when you try to drag, you're able to drag a bit to the right, which shouldn't happen as it's a one column list.
+This is a fork that fixes DragSortableView / AutoDragSortableView's bug, where when you try to drag, you're able to drag a bit to the right, which shouldn't happen as it's a one column list.
 
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)

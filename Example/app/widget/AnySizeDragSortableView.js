@@ -1,16 +1,15 @@
 import React from 'react';
 import {
-  NativeModules,
   StyleSheet,
   ScrollView,
   View,
   PanResponder,
   LayoutAnimation,
-  Platform
+  Platform,
+  UIManager
 } from 'react-native';
 const PropTypes = require('prop-types')
 const ANIM_DURATION = 300
-const { UIManager } = NativeModules;
 
 if (Platform.OS === 'android') {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
